@@ -1,1 +1,1 @@
-{"resources":{"Scripts/Script.sql":{"default-datasource":"postgres-jdbc-190ef924080-3e66b7e254f48819"}}}
+{"resources":{"Scripts/data.dml.sql":{"default-schema":"public","default-datasource":"postgres-jdbc-190ef924080-3e66b7e254f48819","default-catalog":"westmarches"},"Scripts/schema.ddl.sql":{"default-schema":"public","default-datasource":"postgres-jdbc-190ef924080-3e66b7e254f48819","default-catalog":"westmarches"},"Scripts/tests.sql":{"default-schema":"public","default-datasource":"postgres-jdbc-190ef924080-3e66b7e254f48819","default-catalog":"westmarches"}}}
