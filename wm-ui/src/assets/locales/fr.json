@@ -1,0 +1,11 @@
+{
+  "authentification" : {
+      "Login": "Connexion",
+      "Register": "S'inscrire",
+      "Email address": "Adresse e-mail",
+      "Password": "Mot de passe",
+      "RegisterLink": "Pas de compte ? Inscrivez-vous ici !",
+      "LoginLink": "Vous avez déjà un compte ? Connectez-vous ici !",
+      "SubmitButton": "Soumettre"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "authentification" : {
+      "Login": "تسجيل الدخول",
+      "Register": "التسجيل",
+      "Email address": "عنوان البريد الإلكتروني",
+      "Password": "كلمة المرور",
+      "RegisterLink": "ليس لديك حساب؟ سجل هنا!",
+      "LoginLink": "هل لديك حساب بالفعل؟ سجل الدخول هنا!",
+      "SubmitButton": "إرسال"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "authentification" : {
+      "Login": "Login",
+      "Register": "Register",
+      "EmailAddress": "Email address",
+      "Password": "Password",
+      "RegisterLink": "no accounts? register here!",
+      "LoginLink": "already have an account? login here!",
+      "SubmitButton": "Submit",
+      "EmailError": "please write standard email address",
+      "PasswordError": "password should be at least 8 characters long, contains letters AND number as well as one of these: ';:*-!'"
+  }
+}
