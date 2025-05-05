@@ -65,8 +65,6 @@ export default {
                     this.tileDetails = this.tiles.find((tile) => tile.x === coordinates.x && tile.y === coordinates.y);
                     bsOffcanvas.show();
                 })
-            
-            
 
             // const tippyViews = tippy('.map-tile', {
             //     content(e) { 
@@ -92,14 +90,14 @@ export default {
                 .attr('data-cy', 'cell')
                 .data('coordinates' , { value : { x: hex.col, y: hex.row } })
                 // .fill({ color: colors[Math.round(hex.col)], opacity: '30%'})
-                .fill(draw.image('/biomes/desert.svg', function() {
-                    this.size(hex.width, hex.height)
-                    // this.center(hex.x, hex.y)
-                    this.x(hex.center.x)
-                    this.y(hex.center.y)
-                    this.addClass('desert')
-                    console.log('hex', hex, 'this', this.center)
-                }))
+                // .fill(draw.image('/biomes/desert.svg', function() {
+                //     this.size(hex.width, hex.height)
+                //     // this.center(hex.x, hex.y)
+                //     this.x(hex.center.x)
+                //     this.y(hex.center.y)
+                //     this.addClass('desert')
+                //     console.log('hex', hex, 'this', this.center)
+                // }))
 
 
             // Add a text element at the center of the hex
@@ -108,6 +106,7 @@ export default {
             //         .add(SVG(<img src="/biomes/desert.svg" alt="desert" />, true))
             // } else {
             if(this.tiles.find((e) => e.x === hex.col && e.y === hex.row)) {
+            polygon.addClass(this.tiles.find((e) => e.x === hex.col && e.y === hex.row).terrain);
             draw
                 // .text(`${Math.round(hex.col)}, ${Math.round(hex.row)}`)
                 .text(this.tiles.find((e) => e.x === hex.col && e.y === hex.row).terrain)
@@ -141,3 +140,22 @@ export default {
     <p v-for="tile in this.tiles"> {{ tile }} </p>
     <TileDetailsOffCanvas v-if="this.tileDetails" :details="this.tileDetails"></TileDetailsOffCanvas>
 </template>
+
+<style>
+    .forest {
+        fill: green;
+        opacity: 50%;
+    }
+    .grassland {
+        fill: yellowgreen;
+        opacity: 50%;
+    }
+    .beach {
+        fill: lightgoldenrodyellow;
+        opacity: 50%;
+    }
+    .sea {
+        fill: lightblue;
+        opacity: 50%;
+    }
+</style>
