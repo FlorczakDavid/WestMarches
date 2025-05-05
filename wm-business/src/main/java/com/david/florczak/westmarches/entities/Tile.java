@@ -1,37 +1,37 @@
 package com.david.florczak.westmarches.entities;
 
-import java.awt.Point;
+
 import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.MapsId;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "t_tiles")
-public class Tile extends AbstractEntity{
+public class Tile extends AbstractEntity {
 
-	@Column(name = "coordinates")
-	@OneToOne(mappedBy = "tile")
-	private Point coordinates;
+	@Column(name = "x")
+	private int x;
+	@Column(name = "y")
+	private int y;
 	@Column(name = "terrain")
 	private String terrain;
 	@Column(name = "description")
 	private String description;
-	@OneToOne(optional = false)
-	@JoinColumn(name = "map_name")
-	@MapsId
+	@ManyToOne
+	@JoinColumn(name="map_id")
 	private Map map;
 	
 	public Tile() {
 		// for the ORM
 	}
 
-	public Tile(Point coordinates, String terrain, String description, Map map) {
-		this.coordinates = coordinates;
+	public Tile(int x, int y, String terrain, String description, Map map) {
+		this.x = x;
+		this.y = y;
 		this.terrain = terrain;
 		this.description = description;
 		this.map = map;
@@ -41,7 +41,7 @@ public class Tile extends AbstractEntity{
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + Objects.hash(coordinates, map);
+		result = prime * result + Objects.hash(x, y, map);
 		return result;
 	}
 
@@ -54,12 +54,12 @@ public class Tile extends AbstractEntity{
 		if (getClass() != obj.getClass())
 			return false;
 		Tile other = (Tile) obj;
-		return Objects.equals(coordinates, other.coordinates) && Objects.equals(map, other.map);
+		return Objects.equals(x, other.x) && Objects.equals(y, other.y) && Objects.equals(map, other.map);
 	}
 
 	@Override
 	public String toString() {
-		return "Tile [coordinates=" + coordinates + ", terrain=" + terrain + ", description=" + description + ", map="
+		return "Tile [x=" + x + "y=" + y + ", terrain=" + terrain + ", description=" + description + ", map="
 				+ map + "]";
 	}
 	

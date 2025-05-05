@@ -1,9 +1,11 @@
 import axios from 'axios';
+
 const api = axios.create({
   baseURL: 'http://localhost:8080',
   headers: {
     "Content-type": "application/json"
-  }
+  },
+  successMessage: 'welcome ' //i18N
 });
 
 const handleError = (error) => {
@@ -42,13 +44,11 @@ const handleError = (error) => {
 
 api.interceptors.response.use(
   (response) => {
-    const successMessage =
-      response.config.successMessage ||
-      `${response.config.method.toUpperCase()} request successful`;
-
-    alert(successMessage, {
-      id: 'api-success',
-    });
+    // const successMessage = response.config.successMessage + 
+    //   JSON.parse(response.config.data).email.split('@')[0];
+    // alert(successMessage, {
+    //   id: 'api-success',
+    // });
 
     return response;
   },
@@ -57,5 +57,24 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+api.interceptors.request.use(
+  (config) => {
+    console.log('config'+JSON.stringify(config))
+    const token = localStorage.getItem('token');
+    const roles = localStorage.getItem('roles');
+
+    if (token) {
+      config.headers['Authorization'] = `bearer ${token}`;
+    }
+    
+    if (roles) {
+      config.headers['Roles'] = roles;
+    }
+    console.log(config.headers)
+    return config;
+  },
+  (error) => Promise.reject(error)
+)
 
 export default api;

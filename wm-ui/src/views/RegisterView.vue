@@ -1,10 +1,10 @@
 <script>
     import { useVuelidate } from '@vuelidate/core'
     import { helpers, maxLength, minLength, required } from '@vuelidate/validators'
-    import api from '../api.js'
+    import api from '../services/api.js'
 
-    const passwordRegex = helpers.regex(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[;:\*\-!]).{8,}$/)
-    const emailRegex = helpers.regex(/^(?=.{1,64}@)\w+([\.-]?\w+)*@(?=.{4,252}$)\w+([\.-]?\w+)*(\.\w{2,4})+$/)
+    const passwordRegex = helpers.regex(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[;:*\-!]).{8,}$/)
+    const emailRegex = helpers.regex(/^(?=.{1,64}@)\w+([.-]?\w+)*@(?=.{4,252}$)\w+([.-]?\w+)*(\.\w{2,4})+$/)
     // check the email in the server
     // const isEmailTaken = (value) => fetch(`/api/unique/${value}`).then(r => r.json()) 
 
@@ -44,9 +44,9 @@
                 if(!isFormCorrect) return;
 
                 api.post('/user', {
-                    email: 'qweewq2@qwe.com',
-                    password: 'qweqwe1!',
-                    username: 'qwe'
+                    email: this.inputs.email,
+                    password: this.inputs.password,
+                    username: this.inputs.email.split('@')[0]
                 }).then(function (response) {
                     console.log("then " + response);
                 }).catch(function (error) {

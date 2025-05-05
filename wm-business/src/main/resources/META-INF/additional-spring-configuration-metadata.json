@@ -1,0 +1,32 @@
+{"properties": [
+  {
+    "name": "com.david.florczak.westmarches.cors",
+    "type": "java.lang.String",
+    "description": "A description for 'com.david.florczak.westmarches.cors'"
+  },
+  {
+    "name": "com.david.florczak.westmarches.BCrypt.rounds",
+    "type": "java.lang.String",
+    "description": "A description for 'com.david.florczak.westmarches.BCrypt.rounds'"
+  },
+  {
+    "name": "com.david.florczak.westmarches.jwt.secret",
+    "type": "java.lang.String",
+    "description": "A description for 'com.david.florczak.westmarches.jwt.secret'"
+  },
+  {
+    "name": "com.david.florczak.westmarches.claims.iss",
+    "type": "java.lang.String",
+    "description": "A description for 'com.david.florczak.westmarches.claims.iss'"
+  },
+  {
+    "name": "com.david.florczak.westmarches.claims.exp",
+    "type": "java.lang.String",
+    "description": "A description for 'com.david.florczak.westmarches.claims.exp'"
+  },
+  {
+    "name": "com.david.florczak.westmarches.BCrypt.rounds",
+    "type": "java.lang.String",
+    "description": "A description for 'com.david.florczak.westmarches.BCrypt.rounds'"
+  }
+]}
