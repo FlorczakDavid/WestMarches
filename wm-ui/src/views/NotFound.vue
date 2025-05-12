@@ -8,7 +8,7 @@
   }
 </script>
 <template>
-  <div>
+  <div class="head">
     <h1>404</h1>
     <button v-on:click="goBack">Go back</button>
   </div>

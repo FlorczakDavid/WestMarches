@@ -67,16 +67,16 @@
 </script>
 
 <template>
-    <div className="container min-vw-80">
+    <div className="container min-vw-80 content">
         <h1>{{$t('authentification.Login')}}</h1>
         <form @submit.prevent="submit" novalidate>
             <div className="mb-3">
-                <label htmlFor="email" className="form-label">{{$t('authentification.EmailAddress')}}</label>
+                <h2 htmlFor="email" className="form-label">{{$t('authentification.EmailAddress')}}</h2>
                 <input v-model="inputs.email" type="email" name="email" className="form-control" id="email"/>
                 <div class="text-danger" v-if="v$.inputs.email.$error">{{ $t('authentification.EmailError') }}</div>
             </div>
             <div className="mb-3">
-                <label htmlFor="password" className="form-label">{{$t('authentification.Password')}}</label>
+                <h2 htmlFor="password" className="form-label">{{$t('authentification.Password')}}</h2>
                 <input v-model="inputs.password" type="password" name="password" className="form-control" id="password"/>
                 <div class="text-danger" v-if="v$.inputs.password.$error">{{ $t('authentification.PasswordError') }}</div>
             </div>

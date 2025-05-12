@@ -6,6 +6,7 @@ import permissionService from '@/services/permissionService.js'
 import { SVG } from '@svgdotjs/svg.js'
 import { defineHex, Grid, rectangle } from 'honeycomb-grid'
 import TileDetailsOffCanvas from './TileDetailsOffCanvas.vue'
+import { Offcanvas } from 'bootstrap'
 // import tippy from 'tippy.js';
 // import 'tippy.js/dist/tippy.css';
 // import tippyCard from '@/components/tippyCard.js' 
@@ -60,7 +61,7 @@ export default {
                     // TODO - if Display checked, do something
                     // TODO - if Edit checked, do something
                     // TODO - if Draw checked, do something
-                    const bsOffcanvas = new bootstrap.Offcanvas('#offcanvasScrolling')
+                    const bsOffcanvas = new Offcanvas('#offcanvasScrolling')
                     const coordinates = e.target.instance.data('coordinates').value;
                     this.tileDetails = this.tiles.find((tile) => tile.x === coordinates.x && tile.y === coordinates.y);
                     bsOffcanvas.show();
@@ -140,22 +141,3 @@ export default {
     <p v-for="tile in this.tiles"> {{ tile }} </p>
     <TileDetailsOffCanvas v-if="this.tileDetails" :details="this.tileDetails"></TileDetailsOffCanvas>
 </template>
-
-<style>
-    .forest {
-        fill: green;
-        opacity: 50%;
-    }
-    .grassland {
-        fill: yellowgreen;
-        opacity: 50%;
-    }
-    .beach {
-        fill: lightgoldenrodyellow;
-        opacity: 50%;
-    }
-    .sea {
-        fill: lightblue;
-        opacity: 50%;
-    }
-</style>

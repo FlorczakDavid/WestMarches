@@ -1,0 +1,130 @@
+$nav-link-color: #000;
+$nav-link-background: #5D0000;
+$nav-link-hover-color: #5D0000;
+$nav-link-hover-bg: #5D0000;
+
+$nav-tabs-link-active-color: #fff;
+
+$nav-tabs-link-active-bg: #5D0000;
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/nav";
+@font-face {
+    font-family: 'Taroca';
+    src: url('./fonts/Taroca\ Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Linotype sabon';
+    src: url('./fonts/Sabon.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Linotype sabon';
+    src: url('./fonts/SabonItalic.ttf') format('truetype');
+    font-style: italic, oblique;
+}
+@font-face {
+    font-family: 'gin';
+    src: url('./fonts/Gin\ Regular.otf') format('openformat');
+}
+@font-face {
+    font-family: 'ff-good-web-pro';
+    src: url('./fonts/FFGoodPro\ Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'ff-good-web-pro';
+    src: url('./fonts/FFGoodPro\ Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+$font-family-base:  'Taroca', serif !default;
+$body-bg:           #eee !important; // parchment-like
+$body-color:        #3c2f2f !default; // dark sepia
+
+
+.head {
+    color:#5D0000
+}
+.head h1 {
+    font-family: 'Taroca';
+}
+.head p {
+    font-family: 'Linotype sabon';
+    font-style: italic;
+}
+
+.content p {
+    font-family: 'Linotype sabon'; 
+    color: #222
+}
+.content h1 {
+    font-family: 'Taroca';
+    color: #002564;
+}
+.content h2 {
+    font-family: 'gin'; 
+    color: #5D0000;
+}
+.content h3 {    
+    font-family: 'gin'; 
+    color: #A76652;
+}
+.info {
+    font-family: 'ff-good-web-pro'; 
+    color: #fff;
+    background: #5D0000;
+}
+.note {
+    font-family: 'ff-good-web-pro'; 
+    background: #D1C7B1;
+    color: #222;
+}
+.rules {
+    font-family: 'ff-good-web-pro'; 
+    background:#F0E8D3;
+    color: #222;
+}
+.math {
+    background: #EAE3D8;
+    border-top: 2px solid #E0C9C0;
+    border-bottom: 2px solid #E0C9C0;
+    color: #222;
+    font-family: 'ff-good-web-pro';
+    font-weight: bold;
+    text-align: center;
+}
+// table thead tr th {
+//     font-family: 'ff-good-web-pro';
+//     color: #fff;
+//     background: #5D0000;
+// }
+// table tbody tr
+// 		tr:nth-child(odd)
+//         - background:  #EDE3C7
+//  		tr:nth-child(even)
+//         - background:  #F4EEE0
+// 		td
+//         - 'ff-good-web-pro'
+// 	tfoot
+//         - background:  #E6D8B0 
+
+.pf-trait {
+    font-family: 'ff-good-web-pro-condensed','Open Sans Condensed', sans-serif !important;
+    background: #5d0000;
+    color: #fff;
+    border-color: #d8c384;
+    display: inline-block;
+    padding:  0.25rem 0.5rem 0.1rem 0.5rem;
+    font-weight: bold;
+    border-width: 0.15rem;
+    border-style: solid;
+    border-right-width: 0.1rem;
+    border-left-width: 0.1rem;
+    text-align: center;
+}
+
+body {
+    color: $body-color;
+    background: $body-bg;
+}

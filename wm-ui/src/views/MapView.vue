@@ -61,11 +61,13 @@
   }
 </script>
 <template>
-  <div>
+  <div class="head">
     <h1>Maps</h1>
     <button v-on:click="logout">Logout</button>
     <MapPickerTab v-if="this.selectedMap && this.maps" :maps="maps" v-model:selectedMap="selectedMap"></MapPickerTab>
     <MouseFunctionPicker></MouseFunctionPicker>
+  </div>
+  <div class="content">
     <HexMap v-if="this.selectedMap && this.tiles" :mapData="this.selectedMap" :key="this.selectedMap.name" :tiles="this.tiles"></HexMap>
   </div>
 </template>
