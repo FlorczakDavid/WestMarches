@@ -1,15 +1,10 @@
 <script>
-import api from '../services/api.js'
-import permissionService from '@/services/permissionService.js'
-
-// import variables from './variables.module.scss'
 import { SVG } from '@svgdotjs/svg.js'
 import { defineHex, Grid, rectangle } from 'honeycomb-grid'
 import TileDetailsOffCanvas from './TileDetailsOffCanvas.vue'
+import TileEditModal from './TileEditModal.vue'
 import { Offcanvas } from 'bootstrap'
-// import tippy from 'tippy.js';
-// import 'tippy.js/dist/tippy.css';
-// import tippyCard from '@/components/tippyCard.js' 
+import { Modal } from 'bootstrap';
 
 export default {
     props: [
@@ -17,13 +12,15 @@ export default {
         'tiles'
         ],
     components: {
-        TileDetailsOffCanvas
+        TileDetailsOffCanvas,
+        TileEditModal
     },
     data() {
         return {
             primaryColor: '#b865cd',
             previousColor: '#b865cd',
             tileDetails: {},
+            offcanvas: null
         }
     },
     watch: {
@@ -45,40 +42,24 @@ export default {
             const draw = SVG().addTo(container).size(grid.pixelWidth+4, grid.pixelHeight+4).group()
                 .fill('none')
                 .translate(2, 2)
-                .stroke({ width: 2, color: '#999' })
+                .stroke({ width: 3, color: '#999' })
                 .mouseover(function(e) {
-                    if(!e.target.attributes.class.value || e.target.attributes.class.value !== 'map-tile') { return }
-                    this.previousColor = e.target.attributes.fill.value;
-                    e.target.instance.fill({ color: '#f06' }); 
-                    e.target.instance.opacity('30%')
+                    // if(!e.target.attributes.class.value || e.target.attributes.class.value !== 'map-tile') { return }
+                    e.target.instance.stroke('#f06'); 
                 })
                 .mouseout(function(e) {
-                    if(!e.target.attributes.class.value || e.target.attributes.class.value !== 'map-tile') { return }
-                    e.target.instance.fill({ color: this.previousColor })
-                    e.target.instance.opacity('100%')
+                    // if(!e.target.attributes.class.value || e.target.attributes.class.value !== 'map-tile') { return }
+                    e.target.instance.stroke('#999')
                 })
                 .click((e) => { 
                     // TODO - if Display checked, do something
                     // TODO - if Edit checked, do something
                     // TODO - if Draw checked, do something
-                    const bsOffcanvas = new Offcanvas('#offcanvasScrolling')
+                    this.offcanvas = new Offcanvas('#offcanvasScrolling')
                     const coordinates = e.target.instance.data('coordinates').value;
                     this.tileDetails = this.tiles.find((tile) => tile.x === coordinates.x && tile.y === coordinates.y);
-                    bsOffcanvas.show();
+                    this.offcanvas.show();
                 })
-
-            // const tippyViews = tippy('.map-tile', {
-            //     content(e) { 
-            //         const coordinates = e.instance.data('coordinates');
-            //         return tippyCard.cardHTML(coordinates);
-            //     },
-            //     theme: 'material',
-            //     trigger: 'manual',
-            //     allowHTML: true,
-            //     interactive: true,
-            //     appendTo: document.body,
-            // });
-            // console.log(tippyViews);
 
             grid.forEach(hex => { this.renderSVG(hex, draw); })
         },
@@ -127,17 +108,24 @@ export default {
             }
             // }
         return draw.add(polygon)
+        },
+        showTileEditModal() {
+            this.offcanvas.hide();
+            const tileEditModal = new Modal('#tileDetailsEditModal')
+            // const coordinates = e.target.instance.data('coordinates').value;
+            // this.tileDetails = this.tiles.find((tile) => tile.x === coordinates.x && tile.y === coordinates.y);
+            tileEditModal.show();
         }
     }
 }
 </script>
 
 <template>
-    <div>
+    <div class="debug">
         <h1>HEXMAP HERE</h1>
         <h2> {{ this.mapData }}</h2>
     </div>
     <article ref="mapContainer" class="map-container"></article>
-    <p v-for="tile in this.tiles"> {{ tile }} </p>
-    <TileDetailsOffCanvas v-if="this.tileDetails" :details="this.tileDetails"></TileDetailsOffCanvas>
+    <TileDetailsOffCanvas v-if="this.tileDetails" :details="this.tileDetails" @edit="showTileEditModal"></TileDetailsOffCanvas>
+    <TileEditModal v-if="this.tileDetails" :details="this.tileDetails" ></TileEditModal>
 </template>
