@@ -97,6 +97,7 @@ export default {
         submit() {
             if(this.validate()) {
                 console.log('patching request sent');
+                console.log(JSON.stringify(this.tileData))
                 // api.patch
             }
         },
@@ -110,7 +111,7 @@ export default {
                     this.validation.uniquePoiNames = false;
                 }
                 for(const poi of this.tileData.pointsOfInterest) {
-                    if(!poi.name || !poi.description) {
+                    if(!poi.name) {
                         this.validation.emptyField = false;
                     }
                     if(!this.ArrayCheckDeepDistinct(poi.events, 'name')) {
@@ -121,7 +122,7 @@ export default {
                     }
                     if(poi.events.length > 0) {
                         for(const poiEvent of poi.events) {
-                            if(!poiEvent.name || !poiEvent.description) {
+                            if(!poiEvent.name) {
                                 this.validation.emptyField = false;
                             }
                             if(poiEvent.name.length > 100) {

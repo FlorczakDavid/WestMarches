@@ -1,11 +1,15 @@
 package com.david.florczak.westmarches.controllers;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.david.florczak.westmarches.dtos.DetailedTile;
 import com.david.florczak.westmarches.dtos.TileIdentifier;
 import com.david.florczak.westmarches.dtos.TileRequest;
 import com.david.florczak.westmarches.services.TileService;
@@ -37,6 +41,12 @@ public class TileController {
 	Object getTileDeepDetails(@RequestParam String email, @RequestParam String map, @RequestParam int x, @RequestParam int y) {
 		TileIdentifier input = new TileIdentifier(email, map, x ,y);
 		return service.getTileDeepDetails(input);
+	}
+	
+	@PatchMapping("/edit")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	void editTile(@RequestBody DetailedTile input) {
+		
 	}
 }
 

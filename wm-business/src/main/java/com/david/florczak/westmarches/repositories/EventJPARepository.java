@@ -6,10 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.david.florczak.westmarches.dtos.EventGet;
-import com.david.florczak.westmarches.entities.Events;
+import com.david.florczak.westmarches.entities.Event;
 
 @Repository
-public interface EventJPARepository extends JpaRepository<Events, Long> {
+public interface EventJPARepository extends JpaRepository<Event, Long> {
 
 	List<EventGet> findByPoiTileMapUserEmailAndPoiTileMapNameAndPoiTileXAndPoiTileYAndPoiName(
 			String email, 

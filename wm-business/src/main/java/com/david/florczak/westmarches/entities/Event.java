@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "t_events")
-public class Events extends AbstractEntity {
+public class Event extends AbstractEntity {
 
 	@Column(name = "name")
 	private String name;
@@ -20,11 +20,11 @@ public class Events extends AbstractEntity {
 	@JoinColumn(name="poi_id")
 	private PointOfInterest poi;
 	
-	public Events() {
+	public Event() {
 		// for the ORM
 	}
 
-	public Events(String name, String description, PointOfInterest poi) {
+	public Event(String name, String description, PointOfInterest poi) {
 		this.name = name;
 		this.description = description;
 		this.poi = poi;
@@ -70,13 +70,13 @@ public class Events extends AbstractEntity {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Events other = (Events) obj;
+		Event other = (Event) obj;
 		return Objects.equals(name, other.name) && Objects.equals(poi, other.poi);
 	}
 
 	@Override
 	public String toString() {
-		return "Events [name=" + name + ", description=" + description + ", poi=" + poi + "]";
+		return "Event [name=" + name + ", description=" + description + ", poi=" + poi + "]";
 	}
 	
 	

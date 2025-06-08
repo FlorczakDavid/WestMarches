@@ -26,7 +26,7 @@ public interface TileJPARepository extends JpaRepository<Tile, Long> {
 			  )
 			  FROM Tile t
 			    JOIN PointOfInterest p ON p.tile = t
-			    JOIN Events e ON e.poi = p
+			    JOIN Event e ON e.poi = p
 			  WHERE
 			    t.map.user.email = ?1
 			    AND t.map.name = ?2
