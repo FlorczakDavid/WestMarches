@@ -54,13 +54,12 @@ public class SecurityConfig {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
-					.allowedMethods("POST", "GET")
+					.allowedMethods("POST", "GET", "PATCH")
 					.allowedOrigins(origins);
 			}
 		};
 	}
-	
-	//authorization server config
+
 	@Bean
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder(rounds);
@@ -88,7 +87,6 @@ public class SecurityConfig {
 	
 	@Bean
 	SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
-//		new JwtGrantedAuthoritiesConverter().convert();
 		security
 			.csrf(csrf -> csrf.disable())
 			.authorizeHttpRequests(authorize -> 
@@ -98,10 +96,12 @@ public class SecurityConfig {
 					.requestMatchers(HttpMethod.GET, "/tile/user").hasRole("pc ")
 					.requestMatchers(HttpMethod.GET, "/poi/tile").hasRole("pc ")
 					.requestMatchers(HttpMethod.GET, "/tile/event").hasRole("pc ")
+					.requestMatchers(HttpMethod.PATCH, "/tile/").hasRole("pc ")
 					.anyRequest().authenticated())
 			.oauth2ResourceServer(oauth2 ->
 				oauth2.jwt(Customizer.withDefaults()))
 			.cors(Customizer.withDefaults());
+//			.cors(cors -> cors.disable());
 		
 		
 		return security.build();

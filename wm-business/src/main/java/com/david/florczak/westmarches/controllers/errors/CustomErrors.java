@@ -10,7 +10,7 @@ public class CustomErrors {
 	
 	private final Map<String, Collection<String>> fieldErrors = new HashMap<>();
 	
-	private final Collection<String> globalErrors = new ArrayList<String>();
+	private final Collection<String> globalErrors = new ArrayList<>();
 	
 	public CustomErrors() {
 		//

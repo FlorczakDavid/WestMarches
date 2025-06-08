@@ -46,13 +46,13 @@ export default {
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
         <div class="offcanvas-header container head">
             <h1 class="offcanvas-title col-9" id="offcanvasScrollingLabel">{{ `x: ${this.details.x}, y:${this.details.y}` }}</h1>
-            <button type="button" class="btn btn-outline-secondary col" v-on:click="requestEdit()" data-bs-dismiss="offcanvas" aria-label="Edit">edit</button>
+            <button type="button" class="btn btn-outline-secondary col" v-on:click="requestEdit()" data-bs-dismiss="offcanvas" aria-label="Edit">{{$t('tileDetails.editButton')}}</button>
             <button type="button" class="btn-close col" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body content">
             <h1> {{ this.details.terrain }} </h1>
             <p> {{ this.details.description }} </p>
-            <h2> Points of interest: </h2>
+            <h2>{{$t('tileDetails.poiSubtitle')}}</h2>
             <div class="accordion accordion-flush" id="poi-accordion">
                 <div v-for="(pointOfInterest, index) in this.pointsOfInterest" v-if="this.pointsOfInterest">
                     <PointOfInterestDetails :context="this.details" :details="pointOfInterest" :index="index"></PointOfInterestDetails>

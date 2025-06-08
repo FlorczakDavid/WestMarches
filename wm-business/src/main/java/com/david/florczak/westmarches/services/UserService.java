@@ -1,11 +1,8 @@
 package com.david.florczak.westmarches.services;
 
-import java.util.Optional;
 import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -32,9 +29,6 @@ public class UserService {
 	
 	private final JwtProvider provider;
 	
-//	@Value("${co.david.florczak.westmarches.BCrypt.rounds}")
-//	private int rounds;
-	
 	//injection de dependances
 	public UserService(UserJPARepository users, PasswordEncoder encoder, JwtProvider provider, RoleJPARepository roles) {
 		this.users = users;
@@ -45,11 +39,8 @@ public class UserService {
 
 	@Transactional
 	public void create(UserCreate inputs) {
-//		if() {
-//			
-//		}
 		User user = new User();
-		user.setEmail(inputs.email());
+		user.setEmail(inputs.email().toLowerCase());
 		user.setUsername(inputs.username());
 		String hashedPassword = encoder.encode(inputs.password());
 		user.setPassword(hashedPassword);
@@ -59,7 +50,7 @@ public class UserService {
 	}
 
 	public UserLoginInfo login(UserLogin inputs) {
-		String email = inputs.email();
+		String email = inputs.email().toLowerCase();
 		String password = inputs.password();
 		User fetchedUser = users.getByEmailIgnoreCase(email)
 									.orElseThrow(() -> new BadCredentialsException("invalid email"));
@@ -70,11 +61,15 @@ public class UserService {
 
 		Set<Role> sentRoles = roles.findAllByExercisingUsersEmail(email); 
 
-		return new UserLoginInfo(provider.create(email, sentRoles), sentRoles.stream().map(role -> role.getCode()).toList());
+		return provider.createUserLoginInfo(email, sentRoles);
 	}
 
 	public Object getUser(String name) {
 		return users.getByEmailIgnoreCase(name);
+	}
+
+	public boolean existsByEmail(String value) {
+		return users.existsByEmail(value);
 	}
 
 }

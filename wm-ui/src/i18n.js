@@ -11,7 +11,6 @@ export function loadLocaleMessages(locale) {
     Object.keys(i18n.global.getLocaleMessage(locale)).length === 0
   ) {
     return import(
-      /* webpackChunkName: "locale-[request]" */
       `@/assets/locales/${locale}.json`
     ).then((module) => {
       i18n.global.setLocaleMessage(locale, module.default);

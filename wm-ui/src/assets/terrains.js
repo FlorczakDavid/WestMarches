@@ -1,8 +1,14 @@
 export default [
-        'desert',
-        'forest',
-        'sea',
-        'swamp',
-        'hill',
-        'mountain'
-    ]
+    "forest",
+    "grassland",
+    "beach",
+    "sea",
+    "roughland",
+    "urban",
+    "ocean",
+    "snow",
+    "desert",
+    "mountain",
+    "volcanic",
+    "swamp"
+]

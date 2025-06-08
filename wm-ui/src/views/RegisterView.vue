@@ -75,19 +75,19 @@
 
 <template>
     <div className="container min-vw-80 content">
-        <h1>{{$t('authentification.Register')}}</h1>
+        <h1>{{$t('auth.registerTitle')}}</h1>
         <form @submit.prevent="submit" novalidate>
             <div className="mb-3">
-                <h2 htmlFor="email" className="form-label">{{$t('authentification.EmailAddress')}}</h2>
+                <h2 htmlFor="email" className="form-label">{{$t('auth.emailLabel')}}</h2>
                 <input v-model="inputs.email" type="email" name="email" className="form-control" id="email"/>
-                <div class="text-danger" v-if="v$.inputs.email.$error">{{ $t('authentification.EmailError') }}</div>
+                <div class="text-danger" v-if="v$.inputs.email.$error">{{ $t('auth.EmailError') }}</div>
             </div>
             <div className="mb-3">
-                <h2 htmlFor="password" className="form-label">{{$t('authentification.Password')}}</h2>
+                <h2 htmlFor="password" className="form-label">{{$t('auth.passwordLabel')}}</h2>
                 <input v-model="inputs.password" type="password" name="password" className="form-control" id="password"/>
-                <div class="text-danger" v-if="v$.inputs.password.$error">{{ $t('authentification.PasswordError') }}</div>
+                <div class="text-danger" v-if="v$.inputs.password.$error">{{ $t('auth.PasswordError') }}</div>
             </div>
-            <button type="submit" className="btn btn-primary">{{$t('authentification.SubmitButton')}}</button>
+            <button type="submit" className="btn btn-primary">{{$t('auth.submitButton')}}</button>
         </form>
     </div>
 </template>

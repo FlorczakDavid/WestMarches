@@ -1,11 +1,41 @@
 {
-  "authentification" : {
-      "Login": "Connexion",
-      "Register": "S'inscrire",
-      "Email address": "Adresse e-mail",
-      "Password": "Mot de passe",
-      "RegisterLink": "Pas de compte ? Inscrivez-vous ici !",
-      "LoginLink": "Vous avez déjà un compte ? Connectez-vous ici !",
-      "SubmitButton": "Soumettre"
+  "auth": {
+    "loginTitle": "Connexion",
+    "registerTitle": "Inscription",
+    "emailLabel": "Adresse e-mail",
+    "passwordLabel": "Mot de passe",
+    "registerLink": "Pas de compte ? Inscrivez-vous ici !",
+    "loginLink": "Vous avez déjà un compte ? Connectez-vous ici !",
+    "submitButton": "Envoyer",
+    "emailError": "Veuillez entrer une adresse e-mail valide.",
+    "passwordError": "Le mot de passe doit contenir au moins 8 caractères, incluant une lettre, un chiffre, et un de ces symboles : ';:*-!'"
+  },
+  "errors": {
+    "404": {
+      "goBackButton": "Retour"
+    }
+  },
+  "map": {
+    "title": "Carte"
+  },
+  "mouseFunctionPicker": {
+    "displayLabel": "Afficher",
+    "editLabel": "Modifier"
+  },
+  "tileDetails": {
+    "editButton": "Modifier",
+    "poiSubtitle": "Points d'intérêt :",
+    "eventSubtitle": "Événements"
+  },
+  "editTileModal": {
+    "modalTitle": "Modifier le pavé",
+    "tileDetailsTitle": "Détails du pavé",
+    "coordinates": "Coordonnées :",
+    "description": "Description :",
+    "poiSubtitle": "Points d'intérêt",
+    "addEvent": "Ajouter un événement",
+    "addPOI": "Ajouter un point d'intérêt",
+    "cancel": "Annuler",
+    "save": "Enregistrer les modifications"
   }
 }

@@ -64,51 +64,29 @@ export default {
             grid.forEach(hex => { this.renderSVG(hex, draw); })
         },
         renderSVG(hex, draw) {
-            // let className = (hex.col === 5 && hex.row === 5) ? 'desert' : 'map-tile';
-            let fill = (hex.col === 5 && hex.row === 5) ? '/biomes/desert.svg' : ''
-            const polygon = draw
-                .polygon(hex.corners.map(({ x, y }) => `${x},${y}`))
-                .addClass('map-tile')
-                .attr('data-cy', 'cell')
-                .data('coordinates' , { value : { x: hex.col, y: hex.row } })
-                // .fill({ color: colors[Math.round(hex.col)], opacity: '30%'})
-                // .fill(draw.image('/biomes/desert.svg', function() {
-                //     this.size(hex.width, hex.height)
-                //     // this.center(hex.x, hex.y)
-                //     this.x(hex.center.x)
-                //     this.y(hex.center.y)
-                //     this.addClass('desert')
-                //     console.log('hex', hex, 'this', this.center)
-                // }))
+  const tile = this.tiles.find((e) => e.x === hex.col && e.y === hex.row);
+  const polygon = draw
+    .polygon(hex.corners.map(({ x, y }) => `${x},${y}`))
+    .addClass('map-tile')
+    .data('coordinates', { value: { x: hex.col, y: hex.row } });
 
+  if (tile) {
+    const terrain = tile.terrain;
+    polygon.addClass(terrain);
 
-            // Add a text element at the center of the hex
-            // if(hex.col === 5 && hex.row === 5) {
-            //     draw.foreignObject(polygon.width, polygon.height)
-            //         .add(SVG(<img src="/biomes/desert.svg" alt="desert" />, true))
-            // } else {
-            if(this.tiles.find((e) => e.x === hex.col && e.y === hex.row)) {
-            polygon.addClass(this.tiles.find((e) => e.x === hex.col && e.y === hex.row).terrain);
-            draw
-                // .text(`${Math.round(hex.col)}, ${Math.round(hex.row)}`)
-                .text(this.tiles.find((e) => e.x === hex.col && e.y === hex.row).terrain)
-                .font({ size: 20, anchor: 'middle', leading: '1.2em' })
-                // .addClass('map-tile-coordininates')
-                .center(hex.x, hex.y)
-                .stroke({ width: 0, color: '#999' })
-                .fill('#999');
-            } else {
-                draw
-                .text(`${Math.round(hex.col)}, ${Math.round(hex.row)}`)
-                .font({ size: 20, anchor: 'middle', leading: '1.2em' })
-                // .addClass('map-tile-coordininates')
-                .center(hex.x, hex.y)
-                .stroke({ width: 0, color: '#999' })
-                .fill('#999');
-            }
-            // }
-        return draw.add(polygon)
-        },
+    const icon = draw.image(`/src/assets/svgs/${terrain}.svg`);
+    icon.size(60, 60).center(hex.x, hex.y);
+  } else {
+    draw.text(`${hex.col},${hex.row}`)
+      .font({ size: 20, anchor: 'middle', leading: '1.2em' })
+      .center(hex.x, hex.y)
+      .stroke({ width: 0, color: '#999' })
+      .fill('#999');
+  }
+
+  return draw.add(polygon);
+}
+,
         showTileEditModal() {
             this.offcanvas.hide();
             const tileEditModal = new Modal('#tileDetailsEditModal')
@@ -121,11 +99,34 @@ export default {
 </script>
 
 <template>
-    <div class="debug">
-        <h1>HEXMAP HERE</h1>
-        <h2> {{ this.mapData }}</h2>
-    </div>
-    <article ref="mapContainer" class="map-container"></article>
+    <article ref="mapContainer" class="map-container text-center"></article>
     <TileDetailsOffCanvas v-if="this.tileDetails" :details="this.tileDetails" @edit="showTileEditModal"></TileDetailsOffCanvas>
     <TileEditModal v-if="this.tileDetails" :details="this.tileDetails" ></TileEditModal>
+    <div class="maquette">
+        <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header container head">
+                <h1 class="offcanvas-title col-9" id="offcanvasRightLabel"> Player List </h1>
+                <button type="button" class="btn-close col" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body content">
+                <div class="input-group mb-3">
+                    <span class="input-group-text material-symbols-outlined" id="basic-addon1">search</span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item odd" aria-current="true">QweUser</li>
+                    <li class="list-group-item active even">PlayerFive</li>
+                    <li class="list-group-item odd">مستخدم</li>
+                    <li class="list-group-item even">Alex</li>
+                    <li class="list-group-item odd">Bertrand</li>
+                    <li class="list-group-item even">Claude</li>
+                    <li class="list-group-item odd">Daniel</li>
+                    <li class="list-group-item even">Emmanuelle</li>
+                    <li class="list-group-item odd">Félix</li>
+                    <li class="list-group-item even">Gérard</li>
+                    <li class="list-group-item odd">Hubert</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </template>

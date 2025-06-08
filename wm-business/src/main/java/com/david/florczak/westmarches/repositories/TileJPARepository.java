@@ -35,5 +35,7 @@ public interface TileJPARepository extends JpaRepository<Tile, Long> {
 			""")
 	List<TileDeepDetails> getTilesDeepDetails(String email, String mapName, int x, int y);
 
+	Tile findOneByMapUserEmailAndMapNameAndXAndY(String email, String map, int x, int y);
+
 	
 }

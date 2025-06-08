@@ -17,10 +17,9 @@ export default {
                     events: [{
                         name: 'eventName',
                         description: 'eventDesc'
-                    }]
+                    }] 
                 }]
             },
-            selectedTile: {},
             validation: {
                 uniqueEventNames: true,
                 eventNameLength: true,
@@ -72,9 +71,6 @@ export default {
         })
     },
     methods: {
-        requestEdit() {
-            this.$emit('edit')
-        },
         addPoi() {
             this.tileData.pointsOfInterest.push({
                 name: '',
@@ -96,16 +92,25 @@ export default {
         },
         submit() {
             if(this.validate()) {
-                console.log('patching request sent');
-                console.log(JSON.stringify(this.tileData))
-                // api.patch
+                console.log(JSON.stringify(this.tileData));
+                api.patch('/tile/', {
+                    email: localStorage.getItem('user'),
+                    map: this.selectedMap.name,
+                    x: this.details.x,
+                    y: this.details.y,
+                    details: this.tileData
+                })
+                .then(response => {
+                    if(response.status == 204) {
+                        console.log('data updated')
+                        editModal.hide();
+                    }
+                })
+                .catch(error => console.error(error));
             }
         },
         validate() {
             this.validation.resetBools();
-            if(!this.tileData.description) {
-                this.validation.emptyField = false;
-            }
             if(this.tileData.pointsOfInterest.length > 0) {
                 if(!this.ArrayCheckDeepDistinct(this.tileData.pointsOfInterest, 'name')) {
                     this.validation.uniquePoiNames = false;
@@ -147,11 +152,12 @@ export default {
 </script>
 
 <template>
-    <div class="modal modal-lg fade" id="tileDetailsEditModal" tabindex="-1" aria-labelledby="tileDetailsEditModalTitleLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal modal-lg fade" id="tileDetailsEditModal" tabindex="-1" aria-labelledby="tileDetailsEditModalTitleLabel" 
+        aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title" id="tileDetailsEditModalTitleLabel">Edit Tile</h1>
+                    <h1 class="modal-title" id="tileDetailsEditModalTitleLabel">{{$t('editTileModal.modalTitle')}}</h1>
                 </div>
                 <div class="modal-body">
                     <div v-for="error in this.validation.errors()">
@@ -159,14 +165,14 @@ export default {
                     </div>
                     <form action="submit">
                         <div class="mb-3" id="tileDetailsMain">
-                            <h2>Tile details</h2>
-                            <h3>coordinates:</h3>
+                            <h2>{{$t('editTileModal.tileDetailsTitle')}}</h2>
+                            <h3>{{$t('editTileModal.coordinates')}}</h3>
                             <p class="math">{{'x: '+ this.details.x +', y: '+ this.details.y}}</p>
-                            <h3 for="floatingTextarea">description:</h3>
+                            <h3 for="floatingTextarea">{{$t('editTileModal.description')}}</h3>
                             <textarea class="form-control" id="descriptionTextarea" v-model="this.tileData.description"></textarea>
                         </div>
                         <div class="mb-3" id="tileDetailsPointsOfInterests">
-                            <h2>points of interest</h2>
+                            <h2>{{$t('editTileModal.poiSubtitle')}}</h2>
                             <div class="card mb-3" v-for="(poi, poiIndex) in this.tileData.pointsOfInterest">
                                 <div class="card-body">
                                     <div class="mb-3">
@@ -178,37 +184,40 @@ export default {
                                                 <button type="button" class="btn btn-outline-secondary btn-lg" @click="this.removePoi(poiIndex)">x</button>
                                             </div>
                                         </div>
-                                        <textarea class="form-control" placeholder="Point of Interest's description" v-model="this.tileData.pointsOfInterest[poiIndex].description"></textarea>
+                                        <textarea class="form-control" placeholder="Point of Interest's description" 
+                                            v-model="this.tileData.pointsOfInterest[poiIndex].description"></textarea>
                                     </div>
                                     <div class="card mb-3" v-for="(event, eventIndex) in poi.events">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-sm-11">
-                                                    <input type="text" class="card-title form-control form-control-lg col-sm-10" placeholder="Event's name" v-model="this.tileData.pointsOfInterest[poiIndex].events[eventIndex].name"></input>
+                                                    <input type="text" class="card-title form-control form-control-lg col-sm-10" placeholder="Event's name" 
+                                                        v-model="this.tileData.pointsOfInterest[poiIndex].events[eventIndex].name"></input>
                                                 </div>
                                                 <div class="col-sm-1">
                                                     <button type="button" class="btn btn-outline-secondary btn-lg" @click="this.removeEvent(poiIndex, eventIndex)">x</button>
                                                 </div>
                                             </div>
-                                            <textarea class="form-control" placeholder="Event's description" v-model="this.tileData.pointsOfInterest[poiIndex].events[eventIndex].description"></textarea>
+                                            <textarea class="form-control" placeholder="Event's description" 
+                                                v-model="this.tileData.pointsOfInterest[poiIndex].events[eventIndex].description"></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card text-center">
                                     <div class="card-body">
-                                        <button type="button" class="btn btn-outline-secondary" @click="this.addEvent(poiIndex)"> add event </button>
+                                        <button type="button" class="btn btn-outline-secondary" @click="this.addEvent(poiIndex)">{{$t('editTileModal.addEvent')}}</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button type="button" class="btn btn-outline-secondary" @click="this.addPoi()"> add point of interest </button>
+                                <button type="button" class="btn btn-outline-secondary" @click="this.addPoi()">{{$t('editTileModal.addPOI')}}</button>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" @click="this.submit()" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="cancel">{{$t('editTileModal.cancel')}}</button>
+                    <button type="submit" @click="this.submit()" class="btn btn-primary">{{$t('editTileModal.save')}}</button>
                 </div>
             </div>
         </div>

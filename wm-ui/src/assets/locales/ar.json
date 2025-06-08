@@ -1,11 +1,41 @@
 {
-  "authentification" : {
-      "Login": "تسجيل الدخول",
-      "Register": "التسجيل",
-      "Email address": "عنوان البريد الإلكتروني",
-      "Password": "كلمة المرور",
-      "RegisterLink": "ليس لديك حساب؟ سجل هنا!",
-      "LoginLink": "هل لديك حساب بالفعل؟ سجل الدخول هنا!",
-      "SubmitButton": "إرسال"
+  "auth": {
+    "loginTitle": "تسجيل الدخول",
+    "registerTitle": "إنشاء حساب",
+    "emailLabel": "عنوان البريد الإلكتروني",
+    "passwordLabel": "كلمة المرور",
+    "registerLink": "ليس لديك حساب؟ أنشئ واحدًا من هنا!",
+    "loginLink": "هل لديك حساب بالفعل؟ سجّل الدخول من هنا!",
+    "submitButton": "إرسال",
+    "emailError": "يرجى إدخال عنوان بريد إلكتروني صالح.",
+    "passwordError": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل، وتشمل حرفًا ورقمًا وأحد الرموز التالية: ';:*-!'"
+  },
+  "errors": {
+    "404": {
+      "goBackButton": "العودة"
+    }
+  },
+  "map": {
+    "title": "الخريطة"
+  },
+  "mouseFunctionPicker": {
+    "displayLabel": "عرض",
+    "editLabel": "تعديل"
+  },
+  "tileDetails": {
+    "editButton": "تعديل",
+    "poiSubtitle": "نقاط الاهتمام:",
+    "eventSubtitle": "الأحداث"
+  },
+  "editTileModal": {
+    "modalTitle": "تعديل المربع",
+    "tileDetailsTitle": "تفاصيل المربع",
+    "coordinates": "الإحداثيات:",
+    "description": "الوصف:",
+    "poiSubtitle": "نقاط الاهتمام",
+    "addEvent": "إضافة حدث",
+    "addPOI": "إضافة نقطة اهتمام",
+    "cancel": "إلغاء",
+    "save": "حفظ التغييرات"
   }
 }

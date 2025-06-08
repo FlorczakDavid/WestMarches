@@ -37,9 +37,9 @@ public class UserController {
 		return service.login(inputs);
 	}
 	
-	@GetMapping("/with-role")
-	Object withRole() {
-		return "with role";
+	@GetMapping("/test")
+	String test() {
+		return "hello!";
 	}
 	
 	@GetMapping("/user")

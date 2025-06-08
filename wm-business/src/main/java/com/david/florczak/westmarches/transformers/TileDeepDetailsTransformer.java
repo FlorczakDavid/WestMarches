@@ -1,18 +1,23 @@
-package com.david.florczak.westmarches.tranformers;
+package com.david.florczak.westmarches.transformers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
+import com.david.florczak.westmarches.dtos.DetailedPointOfInterest;
+import com.david.florczak.westmarches.dtos.DetailedTile;
+import com.david.florczak.westmarches.dtos.EventGet;
 import com.david.florczak.westmarches.dtos.TileDeepDetails;
+import com.david.florczak.westmarches.dtos.TileDeepDetailsNested;
 
 @Component
 public class TileDeepDetailsTransformer {
 
-	public Object transform(List<TileDeepDetails> output) {
-		HashMap<String, Object> ret = new HashMap<>();
+	public TileDeepDetailsNested transform(List<TileDeepDetails> output) {
 		String description = output.get(0).description();
 		ArrayList<HashMap<String, Object>> poiDetails = new ArrayList<>();
 		
@@ -57,11 +62,34 @@ public class TileDeepDetailsTransformer {
 			poiDetail.put("events", eventsByPoiName.get(poiName));
 			poiDetails.add(poiDetail);
 		});
-		
-		ret.put("description", description);
-		ret.put("pointsOfInterest", poiDetails);
-		
+
+		TileDeepDetailsNested ret = new TileDeepDetailsNested(description, poiDetails);
 		return ret;
 	}
 
+	public DetailedTile transformToDetailedTile(List<TileDeepDetails> detailsList) {
+        if (detailsList.isEmpty()) {
+            return new DetailedTile("", List.of());
+        }
+
+        String description = detailsList.get(0).description();
+
+        Map<String, List<EventGet>> poiEventsMap = new LinkedHashMap<>();
+        Map<String, String> poiDescriptionsMap = new LinkedHashMap<>();
+
+        for (TileDeepDetails detail : detailsList) {
+            poiDescriptionsMap.putIfAbsent(detail.poiName(), detail.poiDescription());
+            poiEventsMap.computeIfAbsent(detail.poiName(), k -> new ArrayList<>())
+                .add(new EventGet(detail.eventName(), detail.eventDescription()));
+        }
+
+        List<DetailedPointOfInterest> pois = poiDescriptionsMap.entrySet().stream()
+            .map(entry -> new DetailedPointOfInterest(
+                entry.getKey(),
+                entry.getValue(),
+                poiEventsMap.getOrDefault(entry.getKey(), List.of())))
+            .toList();
+
+        return new DetailedTile(description, pois);
+    }
 }

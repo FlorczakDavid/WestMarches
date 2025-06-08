@@ -36,7 +36,7 @@
             class="btn btn-outline"
             for="display"
         >
-            Display
+            {{$t('mouseFunctionPicker.displayCheckboxLabel')}}
         </label>
 
         <input
@@ -50,7 +50,7 @@
             class="btn btn-outline"
             for="edit"
         >
-            Edit
+            {{$t('mouseFunctionPicker.editCheckboxLabel')}}
         </label>
     
         <div class="btn-group">

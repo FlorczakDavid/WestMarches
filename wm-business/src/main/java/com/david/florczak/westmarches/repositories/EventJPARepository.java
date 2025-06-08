@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.david.florczak.westmarches.dtos.EventGet;
 import com.david.florczak.westmarches.entities.Event;
+import com.david.florczak.westmarches.entities.Tile;
 
 @Repository
 public interface EventJPARepository extends JpaRepository<Event, Long> {
@@ -17,5 +18,9 @@ public interface EventJPARepository extends JpaRepository<Event, Long> {
 			int x, 
 			int y, 
 			String poi);
+
+	void deleteByPoiTileAndPoiNameAndName(Tile tile, String poiName, String eventName);
+
+	Event findByPoiTileAndPoiNameAndName(Tile tile, String poiName, String eventName);
 
 }

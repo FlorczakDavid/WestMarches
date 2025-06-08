@@ -49,7 +49,7 @@ export default {
         <div :id="'poi-accordion-'+index" class="accordion-collapse collapse" data-bs-parent="#poi-accordion">
             <div class="accordion-body">
                 <p>{{ this.details.description }}</p>
-                <h3> Events: </h3>
+                <h3>{{$t('tileDetails.eventSubtitle')}}</h3>
                 <div class="accordion accordion-flush" id="event-accordion">
                     <div v-for="(event, index) in this.events" v-if="this.events">
                         <EventDetails :details="event" :index="index"></EventDetails>

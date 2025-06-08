@@ -7,10 +7,22 @@ $nav-tabs-link-active-color: #fff;
 
 $nav-tabs-link-active-bg: #5D0000;
 
+$list-group-color:                  #000;
+// $list-group-bg:                     #5D0000;
+$list-group-border-color:           #000;
+
+$list-group-hover-bg:               #5D0000;
+
+$list-group-active-color:           #fff;
+$list-group-active-bg:              #5D0000;
+$list-group-active-border-color:    #000;
+
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/mixins";
 @import "../../node_modules/bootstrap/scss/nav";
+@import "../../node_modules/bootstrap/scss/list-group";
+
 @font-face {
     font-family: 'Taroca';
     src: url('./fonts/Taroca\ Regular.ttf') format('truetype');
@@ -54,7 +66,7 @@ $body-color:        #3c2f2f !default; // dark sepia
     font-style: italic;
 }
 
-.content p {
+.content p, .content li {
     font-family: 'Linotype sabon'; 
     color: #222
 }
@@ -135,4 +147,12 @@ body {
 
 .card {
     background-color: #F0E8D3;
+}
+
+.even {
+    background: #EDE3C7;
+}
+
+.odd {
+    background: #F4EEE0;
 }

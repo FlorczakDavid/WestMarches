@@ -51,21 +51,17 @@
         this.selectedMap = response.data[0];
       })
       .catch(error => console.error(error));
-    },
-    methods: {
-      logout() {
-        localStorage.clear();
-        this.$router.push({name: 'home'})
-      }
     }
   }
 </script>
 <template>
   <div class="head">
-    <h1>Maps</h1>
-    <button v-on:click="logout">Logout</button>
+    <h1>{{$t('map.title')}}</h1>
+    <div class="maquette content">
+        <h3>Player Five's Maps</h3>
+    </div>
     <MapPickerTab v-if="this.selectedMap && this.maps" :maps="maps" v-model:selectedMap="selectedMap"></MapPickerTab>
-    <MouseFunctionPicker></MouseFunctionPicker>
+    <!-- <MouseFunctionPicker></MouseFunctionPicker> -->
   </div>
   <div class="content">
     <HexMap v-if="this.selectedMap && this.tiles" :mapData="this.selectedMap" :key="this.selectedMap.name" :tiles="this.tiles"></HexMap>

@@ -1,12 +1,14 @@
 package com.david.florczak.westmarches.config;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator.Builder;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.david.florczak.westmarches.dtos.UserLoginInfo;
 import com.david.florczak.westmarches.entities.Role;
 
 public class JwtProvider {
@@ -23,12 +25,9 @@ public class JwtProvider {
     	this.issuer = issuer;
     }
 
-    public String create(String subject, Set<Role> roles) {
+    private String create(String subject, Set<Role> roles) {
         
         Instant issuedAt = Instant.now();
-        
-//        List<Role> roleList = new ArrayList<Role>();
-//        roleList.addAll(roles);
         
         Builder builder = JWT.create()
         		.withIssuedAt(issuedAt)
@@ -38,9 +37,15 @@ public class JwtProvider {
         
         exp.ifPresent(expires -> 
             builder.withExpiresAt(Instant.ofEpochSecond(expires))
-            //alt: issuedAt.plusSeconds(expires);
         );
         return builder.sign(algorithm);
+    }
+    
+    public UserLoginInfo createUserLoginInfo(String subject, Set<Role> roles) {
+    	return new UserLoginInfo(
+    			create(subject, roles), 
+    			roles.stream().map(role -> role.getCode()).toList(), 
+    			this.exp.orElse(-1L));
     }
 
 }

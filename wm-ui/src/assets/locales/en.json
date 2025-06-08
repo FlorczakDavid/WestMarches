@@ -1,13 +1,41 @@
 {
-  "authentification" : {
-      "Login": "Login",
-      "Register": "Register",
-      "EmailAddress": "Email address",
-      "Password": "Password",
-      "RegisterLink": "no accounts? register here!",
-      "LoginLink": "already have an account? login here!",
-      "SubmitButton": "Submit",
-      "EmailError": "please write standard email address",
-      "PasswordError": "password should be at least 8 characters long, contains letters AND number as well as one of these: ';:*-!'"
+  "auth": {
+    "loginTitle": "Login",
+    "registerTitle": "Register",
+    "emailLabel": "Email address",
+    "passwordLabel": "Password",
+    "registerLink": "No account? Register here!",
+    "loginLink": "Already have an account? Login here!",
+    "submitButton": "Submit",
+    "emailError": "Please enter a valid email address.",
+    "passwordError": "Password must be at least 8 characters, including a letter, a number, and one of: ';:*-!'"
+  },
+  "errors": {
+    "404": {
+      "goBackButton": "Go back"
+    }
+  },
+  "map": {
+    "title": "Map"
+  },
+  "mouseFunctionPicker": {
+    "displayLabel": "Display",
+    "editLabel": "Edit"
+  },
+  "tileDetails": {
+    "editButton": "Edit",
+    "poiSubtitle": "Points of interest:",
+    "eventSubtitle": "Events"
+  },
+  "editTileModal": {
+    "modalTitle": "Edit Tile",
+    "tileDetailsTitle": "Tile details",
+    "coordinates": "Coordinates:",
+    "description": "Description:",
+    "poiSubtitle": "Points of interest",
+    "addEvent": "Add event",
+    "addPOI": "Add point of interest",
+    "cancel": "Cancel",
+    "save": "Save changes"
   }
 }
