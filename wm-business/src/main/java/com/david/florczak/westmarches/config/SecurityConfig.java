@@ -8,6 +8,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -35,7 +36,7 @@ public class SecurityConfig {
 	@Value("${com.david.florczak.westmarches.BCrypt.rounds}")
 	private int rounds;
 	
-	@Value("${com.david.florczak.westmarches.cors}")
+	@Value("${com.david.florczak.westmarches.cors:}")
 	private String origins;
 
 	@Value("${com.david.florczak.westmarches.jwt.secret}")
@@ -89,6 +90,7 @@ public class SecurityConfig {
 	}
 	
 	@Bean
+	@Profile("dev")
 	SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
 		security
 			.csrf(csrf -> csrf.disable())
@@ -105,11 +107,6 @@ public class SecurityConfig {
 			.oauth2ResourceServer(oauth2 ->
 				oauth2.jwt(Customizer.withDefaults()))
 			.cors(Customizer.withDefaults());
-
-		
-		if("prod".equals(activeProfile)) {
-			security.cors(cors -> cors.disable());
-		}
 		
 		
 		return security.build();
