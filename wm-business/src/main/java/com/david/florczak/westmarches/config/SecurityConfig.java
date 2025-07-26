@@ -91,6 +91,7 @@ public class SecurityConfig {
 			.csrf(csrf -> csrf.disable())
 			.authorizeHttpRequests(authorize -> 
 				authorize
+					.requestMatchers(HttpMethod.GET, "/ping").permitAll()
 					.requestMatchers(HttpMethod.POST, "/user", "/user/login").anonymous()
 					.requestMatchers(HttpMethod.GET, "/map/user").hasRole("pc ")
 					.requestMatchers(HttpMethod.GET, "/tile/user").hasRole("pc ")
