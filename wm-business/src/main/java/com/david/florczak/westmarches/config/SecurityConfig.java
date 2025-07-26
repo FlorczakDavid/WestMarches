@@ -47,6 +47,9 @@ public class SecurityConfig {
 	@Value("${com.david.florczak.westmarches.jwt.claims.iss}")
     private String issuer;
 
+    @Value("${spring.profiles.active}")
+    private String activeProfile;
+
 	@Bean
 	WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
@@ -102,7 +105,11 @@ public class SecurityConfig {
 			.oauth2ResourceServer(oauth2 ->
 				oauth2.jwt(Customizer.withDefaults()))
 			.cors(Customizer.withDefaults());
-//			.cors(cors -> cors.disable());
+
+		
+		if("prod".equals(activeProfile)) {
+			security.cors(cors -> cors.disable());
+		}
 		
 		
 		return security.build();
