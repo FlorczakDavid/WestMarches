@@ -89,8 +89,8 @@ public class SecurityConfig {
 		return decoder;
 	}
 	
-	@Bean
-	@Profile("dev")
+//	@Bean
+//	@Profile("dev")
 	SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
 		security
 			.csrf(csrf -> csrf.disable())
