@@ -52,6 +52,7 @@ public class SecurityConfig {
     private String activeProfile;
 
 	@Bean
+	@Profile("dev")
 	WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
 			
@@ -89,8 +90,7 @@ public class SecurityConfig {
 		return decoder;
 	}
 	
-//	@Bean
-//	@Profile("dev")
+	@Bean
 	SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
 		security
 			.csrf(csrf -> csrf.disable())

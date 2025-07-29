@@ -74,7 +74,8 @@ export default {
     const terrain = tile.terrain;
     polygon.addClass(terrain);
 
-    const icon = draw.image(`/src/assets/svgs/${terrain}.svg`);
+    const iconUrl = new URL(`../assets/svgs/${terrain}.svg`, import.meta.url).href;
+    const icon = draw.image(iconUrl);
     icon.size(60, 60).center(hex.x, hex.y);
   } else {
     draw.text(`${hex.col},${hex.row}`)
