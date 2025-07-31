@@ -1,4 +1,20 @@
+-- Adding Campaigns:
+-- basically same behavior as now
+-- but t_users identifier becomes the couple id + t_campaigns_id
+
 DROP TABLE IF EXISTS t_events, t_points_of_interest, t_tiles, t_maps, t_exercise, t_roles, t_users CASCADE;
+
+-- CREATE TABLE t_campaigns(
+--     id INT GENERATED ALWAYS AS IDENTITY,
+--     name VARCHAR(255) NOT NULL,
+--     description TEXT,
+--     -- player_count -> valeur calculée, ne doit pas être ajouté
+--     allow_anon_create boolean,
+--     allow_anon_read boolean,
+--     allow_anon_update boolean,
+--     allow_anon_delete boolean,
+--     allow_anon_schedule boolean,
+-- );
 
 CREATE TABLE t_users(
 	id INT GENERATED ALWAYS AS IDENTITY,
