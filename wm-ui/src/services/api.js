@@ -18,8 +18,8 @@ const handleError = (error) => {
 
     // A lookup table of different error messages
     const messages = {
-      404: 'Resource not found',
-      500: 'Server error. Please try again later.',
+      404: $t('error.404'),
+      500: $t('error.500'),
     };
 
     const errorMessage = 

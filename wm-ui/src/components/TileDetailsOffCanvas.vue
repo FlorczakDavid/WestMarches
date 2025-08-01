@@ -47,7 +47,7 @@ export default {
         <div class="offcanvas-header container head">
             <h1 class="offcanvas-title col-9" id="offcanvasScrollingLabel">{{ `x: ${this.details.x}, y:${this.details.y}` }}</h1>
             <button type="button" class="btn btn-outline-secondary col" v-on:click="requestEdit()" data-bs-dismiss="offcanvas" aria-label="Edit">{{$t('tileDetails.editButton')}}</button>
-            <button type="button" class="btn-close col" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button type="button" class="btn-close col" data-bs-dismiss="offcanvas" :aria-label="$t('common.close')"></button>
         </div>
         <div class="offcanvas-body content">
             <h1> {{ this.details.terrain }} </h1>

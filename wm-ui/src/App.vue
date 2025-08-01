@@ -23,10 +23,10 @@
   <main class="container">
     <RouterView />
   </main>
-  <footer class="text-center p-4 border-top mt-auto">
-    <p>© westmarches</p>
-    <RouterLink to="/gcu">CGU</RouterLink>
-    <RouterLink to="/privacy">Privacy Policy</RouterLink>
-    <small>Project developped as part of school assignment</small>
+  <footer class="text-center p-4 container border-top gy-10">
+    <p class="ms-3">© westmarches</p>
+    <RouterLink to="/gcu" class="ms-3">{{ $t('footer.gcu') }}</RouterLink>
+    <RouterLink to="/privacy" class="ms-3">{{ $t('footer.privacyPolicy') }}</RouterLink>
+    <small class="ms-3">{{ $t('footer.disclamer') }}</small>
   </footer>
 </template>

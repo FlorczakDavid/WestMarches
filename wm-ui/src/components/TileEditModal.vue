@@ -167,9 +167,9 @@ export default {
                         <div class="mb-3" id="tileDetailsMain">
                             <h2>{{$t('editTileModal.tileDetailsTitle')}}</h2>
                             <h3>{{$t('editTileModal.coordinates')}}</h3>
-                            <p class="math">{{'x: '+ this.details.x +', y: '+ this.details.y}}</p>
+                            <p class="math" :aria-label="$t('tile.aria.coordinates')">{{'x: '+ this.details.x +', y: '+ this.details.y}}</p>
                             <h3 for="floatingTextarea">{{$t('editTileModal.description')}}</h3>
-                            <textarea class="form-control" id="descriptionTextarea" v-model="this.tileData.description"></textarea>
+                            <textarea class="form-control" :aria-label="$t('tile.aria.description')" id="descriptionTextarea" v-model="this.tileData.description"></textarea>
                         </div>
                         <div class="mb-3" id="tileDetailsPointsOfInterests">
                             <h2>{{$t('editTileModal.poiSubtitle')}}</h2>
@@ -178,28 +178,25 @@ export default {
                                     <div class="mb-3">
                                         <div class="row">
                                             <div class="col-sm-11">
-                                                <input type="text" class="card-title form-control form-control-lg" placeholder="Point of Interest's name" v-model="this.tileData.pointsOfInterest[poiIndex].name"></input>
+                                                <input type="text" class="card-title form-control form-control-lg" :aria-label="$t('tile.aria.poiNameInput')" :placeholder="$t('tile.poiNameInputPlaceholder')" v-model="this.tileData.pointsOfInterest[poiIndex].name"></input>
                                             </div>
                                             <div class="col-sm-1">
-                                                <button type="button" class="btn btn-outline-secondary btn-lg" @click="this.removePoi(poiIndex)">x</button>
+                                                <button type="button" class="btn btn-outline-secondary btn-lg" @click="this.removePoi(poiIndex)" :aria-label="$t('tile.aria.poiDeleteButton')">x</button>
                                             </div>
                                         </div>
-                                        <textarea class="form-control" placeholder="Point of Interest's description" 
-                                            v-model="this.tileData.pointsOfInterest[poiIndex].description"></textarea>
+                                        <textarea class="form-control" :aria-label="$t('tile.aria.poiDescTextarea')" :placeholder="$t('tile.poiDescTextareaPlaceholder')" v-model="this.tileData.pointsOfInterest[poiIndex].description"></textarea>
                                     </div>
                                     <div class="card mb-3" v-for="(event, eventIndex) in poi.events">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-sm-11">
-                                                    <input type="text" class="card-title form-control form-control-lg col-sm-10" placeholder="Event's name" 
-                                                        v-model="this.tileData.pointsOfInterest[poiIndex].events[eventIndex].name"></input>
+                                                    <input type="text" class="card-title form-control form-control-lg col-sm-10" :aria-label="$t('tile.aria.eventNameInput')" :placeholder="$t('tile.eventNameInputPlaceholder')" v-model="this.tileData.pointsOfInterest[poiIndex].events[eventIndex].name"></input>
                                                 </div>
                                                 <div class="col-sm-1">
                                                     <button type="button" class="btn btn-outline-secondary btn-lg" @click="this.removeEvent(poiIndex, eventIndex)">x</button>
                                                 </div>
                                             </div>
-                                            <textarea class="form-control" placeholder="Event's description" 
-                                                v-model="this.tileData.pointsOfInterest[poiIndex].events[eventIndex].description"></textarea>
+                                            <textarea class="form-control" :aria-label="$t('tile.aria.eventDescTextarea')" :placeholder="$t('tile.eventDescTextareaPlaceholder')" v-model="this.tileData.pointsOfInterest[poiIndex].events[eventIndex].description"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -216,7 +213,7 @@ export default {
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="cancel">{{$t('editTileModal.cancel')}}</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{$t('editTileModal.cancel')}}</button>
                     <button type="submit" @click="this.submit()" class="btn btn-primary">{{$t('editTileModal.save')}}</button>
                 </div>
             </div>

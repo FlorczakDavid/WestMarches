@@ -80,12 +80,12 @@
             <div className="mb-3">
                 <h2 htmlFor="email" className="form-label">{{$t('auth.emailLabel')}}</h2>
                 <input v-model="inputs.email" type="email" name="email" className="form-control" id="email"/>
-                <div class="text-danger" v-if="v$.inputs.email.$error">{{ $t('auth.EmailError') }}</div>
+                <div class="text-danger" v-if="v$.inputs.email.$error">{{ $t('auth.emailError') }}</div>
             </div>
             <div className="mb-3">
                 <h2 htmlFor="password" className="form-label">{{$t('auth.passwordLabel')}}</h2>
                 <input v-model="inputs.password" type="password" name="password" className="form-control" id="password"/>
-                <div class="text-danger" v-if="v$.inputs.password.$error">{{ $t('auth.PasswordError') }}</div>
+                <div class="text-danger" v-if="v$.inputs.password.$error">{{ $t('auth.passwordError') }}</div>
             </div>
             <button type="submit" className="btn btn-primary">{{$t('auth.submitButton')}}</button>
         </form>

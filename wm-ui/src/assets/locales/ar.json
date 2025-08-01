@@ -16,7 +16,8 @@
     }
   },
   "map": {
-    "title": "الخريطة"
+    "title": "الخريطة",
+    "tileAriaLabel": "مربع عند الإحداثيات س: {x}، ص: {y}. نوع التضاريس: {terrain}"
   },
   "mouseFunctionPicker": {
     "displayLabel": "عرض",
@@ -37,5 +38,20 @@
     "addPOI": "إضافة نقطة اهتمام",
     "cancel": "إلغاء",
     "save": "حفظ التغييرات"
+  },
+  "terrain": {
+    "forest": "غابة",
+    "grassland": "أرض عشبية",
+    "beach": "شاطئ",
+    "sea": "بحر",
+    "roughland": "أرض وعرة",
+    "urban": "عمراني",
+    "ocean": "محيط",
+    "snow": "ثلج",
+    "desert": "صحراء",
+    "mountain": "جبل",
+    "volcanic": "بركاني",
+    "swamp": "مستنقع",
+    "empty": "فارغ"
   }
 }

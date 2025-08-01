@@ -15,8 +15,17 @@
       "goBackButton": "Go back"
     }
   },
+  "footer": {
+    "gcu": "GCU",
+    "privacyPolicy": "Privacy Policy",
+    "disclamer": "Project developped as part of school assignment"
+  },
+  "common": {
+    "close": "close"
+  },
   "map": {
-    "title": "Map"
+    "title": "Map",
+    "tileAriaLabel": "Tile at coordinates x: {x}, y: {y}. Terrain is: {terrain}"
   },
   "mouseFunctionPicker": {
     "displayLabel": "Display",
@@ -37,5 +46,36 @@
     "addPOI": "Add point of interest",
     "cancel": "Cancel",
     "save": "Save changes"
+  },
+  "tile": {
+    "poiNameInputPlaceholder": "Enter the point of interest's name",
+    "poiDescTextareaPlaceholder": "Enter the point of interest's description",
+    "eventNameInputPlaceholder": "Enter the event's name",
+    "eventDescTextareaPlaceholder": "Enter the event's description",
+    "aria": {
+      "coordinates": "tile's coordinates",
+      "description": "tile's description",
+      "poiNameInput": "point of interest's name input",
+      "poiDeleteButton": "point of interest's delete button",
+      "poiDescTextarea": "point of interest's description text area",
+      "eventNameInput": "event's name input",
+      "eventDeleteButton": "event's delete button",
+      "eventDescTextarea": "event's description text area"
+    }
+  },
+  "terrain": {
+    "forest": "forest",
+    "grassland": "grassland",
+    "beach": "beach",
+    "sea": "sea",
+    "roughland": "roughland",
+    "urban": "urban",
+    "ocean": "ocean",
+    "snow": "snow",
+    "desert": "desert",
+    "mountain": "mountain",
+    "volcanic": "volcanic",
+    "swamp": "swamp",
+    "empty": "empty"
   }
 }
