@@ -16,6 +16,8 @@ import com.david.florczak.westmarches.dtos.TileIdentifier;
 import com.david.florczak.westmarches.dtos.TileRequest;
 import com.david.florczak.westmarches.services.TileService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/tile")
 public class TileController {
@@ -45,7 +47,7 @@ public class TileController {
 	
 	@PatchMapping("/")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	void editTile(@RequestBody TileEditDetails input) {
+	void editTile(@Valid @RequestBody TileEditDetails input) {
 		System.out.println(input);
 		service.updateTileDeepDetails(input);
 	}

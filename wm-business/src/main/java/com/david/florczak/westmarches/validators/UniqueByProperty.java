@@ -10,11 +10,14 @@ import jakarta.validation.Payload;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-@Constraint(validatedBy = UserUniqueEmailValidator.class)
-public @interface UserUniqueEmail {
-    String message() default "UserUniqueEmailValidator";
+@Constraint(validatedBy = UniqueByPropertyValidator.class)
+public @interface UniqueByProperty {
 
-    Class<?>[] groups() default {};
+	String message() default "UniqueByPropertyValidator";
+	
+	Class<?>[] groups() default {};
+	
+	Class<? extends Payload>[] payload() default {};
 
-    Class<? extends Payload>[] payload() default {};
+	String fieldName();
 }
