@@ -1,21 +1,21 @@
 $nav-link-color: #000;
-$nav-link-background: #5D0000;
-$nav-link-hover-color: #5D0000;
-$nav-link-hover-bg: #5D0000;
+$nav-link-background: #5d0000;
+$nav-link-hover-color: #5d0000;
+$nav-link-hover-bg: #5d0000;
 
 $nav-tabs-link-active-color: #fff;
 
-$nav-tabs-link-active-bg: #5D0000;
+$nav-tabs-link-active-bg: #5d0000;
 
-$list-group-color:                  #000;
+$list-group-color: #000;
 // $list-group-bg:                     #5D0000;
-$list-group-border-color:           #000;
+$list-group-border-color: #000;
 
-$list-group-hover-bg:               #5D0000;
+$list-group-hover-bg: #5d0000;
 
-$list-group-active-color:           #fff;
-$list-group-active-bg:              #5D0000;
-$list-group-active-border-color:    #000;
+$list-group-active-color: #fff;
+$list-group-active-bg: #5d0000;
+$list-group-active-border-color: #000;
 
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
@@ -24,87 +24,87 @@ $list-group-active-border-color:    #000;
 @import "../../node_modules/bootstrap/scss/list-group";
 
 @font-face {
-    font-family: 'Taroca';
-    src: url('./fonts/Taroca\ Regular.ttf') format('truetype');
+  font-family: "Taroca";
+  src: url("./fonts/Taroca\ Regular.ttf") format("truetype");
 }
 @font-face {
-    font-family: 'Linotype sabon';
-    src: url('./fonts/Sabon.ttf') format('truetype');
+  font-family: "Linotype sabon";
+  src: url("./fonts/Sabon.ttf") format("truetype");
 }
 @font-face {
-    font-family: 'Linotype sabon';
-    src: url('./fonts/SabonItalic.ttf') format('truetype');
-    font-style: italic, oblique;
+  font-family: "Linotype sabon";
+  src: url("./fonts/SabonItalic.ttf") format("truetype");
+  font-style: italic, oblique;
 }
 @font-face {
-    font-family: 'gin';
-    src: url('./fonts/Gin\ Regular.otf') format('openformat');
+  font-family: "gin";
+  src: url("./fonts/Gin\ Regular.otf") format("openformat");
 }
 @font-face {
-    font-family: 'ff-good-web-pro';
-    src: url('./fonts/FFGoodPro\ Regular.ttf') format('truetype');
+  font-family: "ff-good-web-pro";
+  src: url("./fonts/FFGoodPro\ Regular.ttf") format("truetype");
 }
 @font-face {
-    font-family: 'ff-good-web-pro';
-    src: url('./fonts/FFGoodPro\ Bold.ttf') format('truetype');
-    font-weight: bold;
+  font-family: "ff-good-web-pro";
+  src: url("./fonts/FFGoodPro\ Bold.ttf") format("truetype");
+  font-weight: bold;
 }
 
-$font-family-base:  'Taroca', serif !default;
-$body-bg:           #F0E8D3 !important; 
-$body-color:        #3c2f2f !default; // dark sepia
-
+$font-family-base: "Taroca", serif !default;
+$body-bg: #f0e8d3 !important;
+$body-color: #3c2f2f !default; // dark sepia
 
 .head {
-    color:#5D0000
+  color: #5d0000;
 }
 .head h1 {
-    font-family: 'Taroca';
+  font-family: "Taroca";
 }
 .head p {
-    font-family: 'Linotype sabon';
-    font-style: italic;
+  font-family: "Linotype sabon";
+  font-style: italic;
 }
 
-.content p, .content li {
-    font-family: 'Linotype sabon'; 
-    color: #222
+.content p,
+.content li {
+  font-family: "Linotype sabon";
+  color: #222;
 }
 .content h1 {
-    font-family: 'Taroca';
-    color: #002564;
+  font-family: "Taroca";
+  color: #002564;
 }
 .content h2 {
-    font-family: 'gin'; 
-    color: #5D0000;
+  font-family: "gin";
+  color: #5d0000;
 }
-.content h3 {    
-    font-family: 'gin'; 
-    color: #A76652;
+.content h3 {
+  font-family: "gin";
+  color: #a76652;
 }
 .info {
-    font-family: 'ff-good-web-pro'; 
-    color: #fff;
-    background: #5D0000;
+  font-family: "ff-good-web-pro";
+  color: #fff;
+  background: #5d0000;
 }
 .note {
-    font-family: 'ff-good-web-pro'; 
-    background: #D1C7B1;
-    color: #222;
+  font-family: "ff-good-web-pro";
+  background: #d1c7b1;
+  color: #222;
 }
 .rules {
-    font-family: 'ff-good-web-pro'; 
-    background:#F0E8D3;
-    color: #222;
+  font-family: "ff-good-web-pro";
+  background: #f0e8d3;
+  color: #222;
 }
 .math {
-    background: #EAE3D8;
-    border-top: 2px solid #E0C9C0;
-    border-bottom: 2px solid #E0C9C0;
-    color: #222;
-    font-family: 'ff-good-web-pro';
-    font-weight: bold;
-    text-align: center;
+  background: #eae3d8;
+  border-top: 2px solid #e0c9c0;
+  border-bottom: 2px solid #e0c9c0;
+  color: #222;
+  font-family: "ff-good-web-pro";
+  font-weight: bold;
+  text-align: center;
 }
 // table thead tr th {
 //     font-family: 'ff-good-web-pro';
@@ -119,40 +119,41 @@ $body-color:        #3c2f2f !default; // dark sepia
 // 		td
 //         - 'ff-good-web-pro'
 // 	tfoot
-//         - background:  #E6D8B0 
+//         - background:  #E6D8B0
 
 .pf-trait {
-    font-family: 'ff-good-web-pro-condensed','Open Sans Condensed', sans-serif !important;
-    background: #5d0000;
-    color: #fff;
-    border-color: #d8c384;
-    display: inline-block;
-    padding:  0.25rem 0.5rem 0.1rem 0.5rem;
-    font-weight: bold;
-    border-width: 0.15rem;
-    border-style: solid;
-    border-right-width: 0.1rem;
-    border-left-width: 0.1rem;
-    text-align: center;
+  font-family:
+    "ff-good-web-pro-condensed", "Open Sans Condensed", sans-serif !important;
+  background: #5d0000;
+  color: #fff;
+  border-color: #d8c384;
+  display: inline-block;
+  padding: 0.25rem 0.5rem 0.1rem 0.5rem;
+  font-weight: bold;
+  border-width: 0.15rem;
+  border-style: solid;
+  border-right-width: 0.1rem;
+  border-left-width: 0.1rem;
+  text-align: center;
 }
 
 body {
-    color: $body-color;
-    background: $body-bg;
+  color: $body-color;
+  background: $body-bg;
 }
 
 .card .card {
-    background-color: #eee;
+  background-color: #eee;
 }
 
 .card {
-    background-color: #F0E8D3;
+  background-color: #f0e8d3;
 }
 
 .even {
-    background: #EDE3C7;
+  background: #ede3c7;
 }
 
 .odd {
-    background: #F4EEE0;
+  background: #f4eee0;
 }

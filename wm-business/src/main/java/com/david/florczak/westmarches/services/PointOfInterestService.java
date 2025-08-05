@@ -2,11 +2,7 @@ package com.david.florczak.westmarches.services;
 
 import com.david.florczak.westmarches.dtos.PointOfInterestGet;
 import com.david.florczak.westmarches.dtos.PointOfInterestRequest;
-import com.david.florczak.westmarches.dtos.TileGet;
-import com.david.florczak.westmarches.dtos.TileRequest;
 import com.david.florczak.westmarches.repositories.PointOfInterestJPARepository;
-import com.david.florczak.westmarches.repositories.TileJPARepository;
-
 import java.util.List;
 
 import org.springframework.stereotype.Service;

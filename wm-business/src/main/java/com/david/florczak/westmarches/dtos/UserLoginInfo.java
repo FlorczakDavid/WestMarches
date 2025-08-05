@@ -2,7 +2,6 @@ package com.david.florczak.westmarches.dtos;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 public record UserLoginInfo(String token, List<String> roles, long exp) {
 

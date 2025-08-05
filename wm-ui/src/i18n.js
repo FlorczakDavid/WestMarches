@@ -1,8 +1,8 @@
-import { createI18n } from 'vue-i18n';
+import { createI18n } from "vue-i18n";
 
 const i18n = createI18n({
-  locale: 'en',
-  messages: {} 
+  locale: "en",
+  messages: {},
 });
 
 export function loadLocaleMessages(locale) {
@@ -10,9 +10,7 @@ export function loadLocaleMessages(locale) {
     !i18n.global.getLocaleMessage(locale) ||
     Object.keys(i18n.global.getLocaleMessage(locale)).length === 0
   ) {
-    return import(
-      `@/assets/locales/${locale}.json`
-    ).then((module) => {
+    return import(`@/assets/locales/${locale}.json`).then((module) => {
       i18n.global.setLocaleMessage(locale, module.default);
       return module.default;
     });

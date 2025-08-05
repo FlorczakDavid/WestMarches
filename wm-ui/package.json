@@ -10,7 +10,9 @@
     "test:unit": "vitest",
     "prepare": "cypress install",
     "test:e2e": "start-server-and-test preview http://localhost:4173 'cypress run --e2e'",
-    "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' http://localhost:4173 'cypress open --e2e'"
+    "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' http://localhost:4173 'cypress open --e2e'",
+    "lint": "eslint --fix src",
+    "format": "prettier .  --write"
   },
   "dependencies": {
     "@svgdotjs/svg.js": "^3.2.4",
@@ -24,15 +26,19 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/test-utils": "^2.4.6",
     "bootstrap": "^5.3.5",
     "cypress": "^14.1.0",
+    "eslint": "^9.32.0",
+    "eslint-plugin-vue": "^10.4.0",
+    "globals": "^16.3.0",
     "jsdom": "^26.0.0",
+    "prettier": "3.6.2",
     "sass": "^1.87.0",
     "sass-embedded": "^1.87.0",
     "start-server-and-test": "^2.0.10",
     "vite": "^6.2.1",
-    "vite-plugin-vue-devtools": "^7.7.2",
     "vitest": "^3.0.8"
   }
 }

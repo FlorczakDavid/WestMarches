@@ -21,7 +21,6 @@ import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.JwtValidators;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
-import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -93,6 +92,7 @@ public class SecurityConfig {
 	@Bean
 	SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
 		security
+			.cors(Customizer.withDefaults())
 			.csrf(csrf -> csrf.disable())
 			.authorizeHttpRequests(authorize -> 
 				authorize
@@ -104,9 +104,7 @@ public class SecurityConfig {
 					.requestMatchers(HttpMethod.GET, "/tile/event").hasRole("pc ")
 					.requestMatchers(HttpMethod.PATCH, "/tile/").hasRole("pc ")
 					.anyRequest().authenticated())
-			.oauth2ResourceServer(oauth2 ->
-				oauth2.jwt(Customizer.withDefaults()))
-			.cors(Customizer.withDefaults());
+			.oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()));
 		
 		
 		return security.build();

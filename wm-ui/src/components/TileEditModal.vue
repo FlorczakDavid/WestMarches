@@ -1,6 +1,5 @@
 <script>
 import api from '@/services/api';
-import { isProxy, toRaw } from 'vue';
 
 export default {
     props: {
@@ -54,7 +53,7 @@ export default {
     },
     mounted() {
         const editModal = document.getElementById('tileDetailsEditModal')
-        editModal.addEventListener('show.bs.modal', event => {
+        editModal.addEventListener('show.bs.modal', () => {
             api.get('/tile/', {
                 params: { 
                     email: localStorage.getItem('user'),
@@ -160,7 +159,7 @@ export default {
                     <h1 class="modal-title" id="tileDetailsEditModalTitleLabel">{{$t('editTileModal.modalTitle')}}</h1>
                 </div>
                 <div class="modal-body">
-                    <div v-for="error in this.validation.errors()">
+                    <div v-for="error in this.validation.errors()" :key="error">
                         <p class="rule" style="color: red;">{{ error }}</p>
                     </div>
                     <form action="submit">
@@ -173,12 +172,12 @@ export default {
                         </div>
                         <div class="mb-3" id="tileDetailsPointsOfInterests">
                             <h2>{{$t('editTileModal.poiSubtitle')}}</h2>
-                            <div class="card mb-3" v-for="(poi, poiIndex) in this.tileData.pointsOfInterest">
+                            <div class="card mb-3" v-for="(poi, poiIndex) in this.tileData.pointsOfInterest" :key="poi.name">
                                 <div class="card-body">
                                     <div class="mb-3">
                                         <div class="row">
                                             <div class="col-sm-11">
-                                                <input type="text" class="card-title form-control form-control-lg" :aria-label="$t('tile.aria.poiNameInput')" :placeholder="$t('tile.poiNameInputPlaceholder')" v-model="this.tileData.pointsOfInterest[poiIndex].name"></input>
+                                                <input type="text" class="card-title form-control form-control-lg" :aria-label="$t('tile.aria.poiNameInput')" :placeholder="$t('tile.poiNameInputPlaceholder')" v-model="this.tileData.pointsOfInterest[poiIndex].name"/>
                                             </div>
                                             <div class="col-sm-1">
                                                 <button type="button" class="btn btn-outline-secondary btn-lg" @click="this.removePoi(poiIndex)" :aria-label="$t('tile.aria.poiDeleteButton')">x</button>
@@ -186,11 +185,11 @@ export default {
                                         </div>
                                         <textarea class="form-control" :aria-label="$t('tile.aria.poiDescTextarea')" :placeholder="$t('tile.poiDescTextareaPlaceholder')" v-model="this.tileData.pointsOfInterest[poiIndex].description"></textarea>
                                     </div>
-                                    <div class="card mb-3" v-for="(event, eventIndex) in poi.events">
+                                    <div class="card mb-3" v-for="(event, eventIndex) in poi.events" :key="event.name">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-sm-11">
-                                                    <input type="text" class="card-title form-control form-control-lg col-sm-10" :aria-label="$t('tile.aria.eventNameInput')" :placeholder="$t('tile.eventNameInputPlaceholder')" v-model="this.tileData.pointsOfInterest[poiIndex].events[eventIndex].name"></input>
+                                                    <input type="text" class="card-title form-control form-control-lg col-sm-10" :aria-label="$t('tile.aria.eventNameInput')" :placeholder="$t('tile.eventNameInputPlaceholder')" v-model="this.tileData.pointsOfInterest[poiIndex].events[eventIndex].name"/>
                                                 </div>
                                                 <div class="col-sm-1">
                                                     <button type="button" class="btn btn-outline-secondary btn-lg" @click="this.removeEvent(poiIndex, eventIndex)">x</button>

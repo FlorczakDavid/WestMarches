@@ -28,5 +28,20 @@
     "name": "com.david.florczak.westmarches.BCrypt.rounds",
     "type": "java.lang.String",
     "description": "A description for 'com.david.florczak.westmarches.BCrypt.rounds'"
+  },
+  {
+    "name": "com.david.florczak.westmarches.BCrypt.rounds",
+    "type": "java.lang.String",
+    "description": "A description for 'com.david.florczak.westmarches.BCrypt.rounds'"
+  },
+  {
+    "name": "com.david.florczak.westmarches.jwt.claims.exp",
+    "type": "java.lang.String",
+    "description": "A description for 'com.david.florczak.westmarches.jwt.claims.exp'"
+  },
+  {
+    "name": "com.david.florczak.westmarches.jwt.claims.iss",
+    "type": "java.lang.String",
+    "description": "A description for 'com.david.florczak.westmarches.jwt.claims.iss'"
   }
 ]}

@@ -5,7 +5,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.david.florczak.westmarches.dtos.EventRequest;
 import com.david.florczak.westmarches.repositories.EventJPARepository;
-import com.david.florczak.westmarches.repositories.PointOfInterestJPARepository;
 
 @Service
 @Transactional(readOnly = true)
