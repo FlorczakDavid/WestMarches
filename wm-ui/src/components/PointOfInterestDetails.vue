@@ -18,7 +18,10 @@ export default {
     };
   },
   watch: {
-    details: function (newDetails) {
+    details: {
+      immediate: true,
+      deep: true,
+      handler(newDetails) {
       console.log("newDetails: ");
       console.log(newDetails);
       api
@@ -36,6 +39,7 @@ export default {
         })
         .catch((error) => console.error(error));
     },
+    } 
   },
 };
 </script>
