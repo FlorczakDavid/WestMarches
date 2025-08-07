@@ -75,8 +75,8 @@ export default {
       <h1>{{ this.details.terrain }}</h1>
       <p>{{ this.details.description }}</p>
       <h2>{{ $t("tileDetails.poiSubtitle") }}</h2>
-      <div class="accordion accordion-flush" id="poi-accordion" v-if="this.pointsOfInterest">
-        <div v-for="(pointOfInterest, index) in this.pointsOfInterest" :key="pointOfInterest.name">
+      <div class="accordion accordion-flush" v-if="this.pointsOfInterest">
+        <div v-for="(pointOfInterest, index) in this.pointsOfInterest" :key="`x: ${this.details.x}, y:${this.details.y}`">
           <PointOfInterestDetails
             :context="this.details"
             :details="pointOfInterest"
