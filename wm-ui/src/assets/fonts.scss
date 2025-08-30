@@ -1,27 +1,6 @@
-$nav-link-color: #000;
-$nav-link-background: #5d0000;
-$nav-link-hover-color: #5d0000;
-$nav-link-hover-bg: #5d0000;
-
-$nav-tabs-link-active-color: #fff;
-
-$nav-tabs-link-active-bg: #5d0000;
-
-$list-group-color: #000;
-// $list-group-bg:                     #5D0000;
-$list-group-border-color: #000;
-
-$list-group-hover-bg: #5d0000;
-
-$list-group-active-color: #fff;
-$list-group-active-bg: #5d0000;
-$list-group-active-border-color: #000;
-
-@import "../../node_modules/bootstrap/scss/functions";
-@import "../../node_modules/bootstrap/scss/variables";
-@import "../../node_modules/bootstrap/scss/mixins";
-@import "../../node_modules/bootstrap/scss/nav";
-@import "../../node_modules/bootstrap/scss/list-group";
+$font-family-base: "Taroca", serif !default;
+$body-bg: #f0e8d3 !important;
+$body-color: #3c2f2f !default; 
 
 @font-face {
   font-family: "Taroca";
@@ -49,10 +28,6 @@ $list-group-active-border-color: #000;
   src: url("./fonts/FFGoodPro\ Bold.ttf") format("truetype");
   font-weight: bold;
 }
-
-$font-family-base: "Taroca", serif !default;
-$body-bg: #f0e8d3 !important;
-$body-color: #3c2f2f !default; // dark sepia
 
 .head {
   color: #5d0000;
@@ -106,20 +81,6 @@ $body-color: #3c2f2f !default; // dark sepia
   font-weight: bold;
   text-align: center;
 }
-// table thead tr th {
-//     font-family: 'ff-good-web-pro';
-//     color: #fff;
-//     background: #5D0000;
-// }
-// table tbody tr
-// 		tr:nth-child(odd)
-//         - background:  #EDE3C7
-//  		tr:nth-child(even)
-//         - background:  #F4EEE0
-// 		td
-//         - 'ff-good-web-pro'
-// 	tfoot
-//         - background:  #E6D8B0
 
 .pf-trait {
   font-family:

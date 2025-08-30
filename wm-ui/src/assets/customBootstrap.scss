@@ -1,0 +1,23 @@
+$nav-link-color: #000;
+$nav-link-background: #5d0000;
+$nav-link-hover-color: #5d0000;
+$nav-link-hover-bg: #5d0000;
+
+$nav-tabs-link-active-color: #fff;
+
+$nav-tabs-link-active-bg: #5d0000;
+
+$list-group-color: #000;
+$list-group-border-color: #000;
+
+$list-group-hover-bg: #5d0000;
+
+$list-group-active-color: #fff;
+$list-group-active-bg: #5d0000;
+$list-group-active-border-color: #000;
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/nav";
+@import "../../node_modules/bootstrap/scss/list-group";

@@ -1,0 +1,48 @@
+.forest {
+  fill: green;
+  opacity: 50%;
+}
+.grassland {
+  fill: yellowgreen;
+  opacity: 50%;
+}
+.beach {
+  fill: lightgoldenrodyellow;
+  opacity: 50%;
+}
+.sea {
+  fill: lightblue;
+  opacity: 50%;
+}
+.roughland {
+  fill: orange;
+  opacity: 50%;
+}
+.urban {
+  fill: gray;
+  opacity: 50%;
+}
+.ocean {
+  fill: blue;
+  opacity: 50%;
+}
+.snow {
+  fill: whitesmoke;
+  opacity: 50%;
+}
+.desert {
+  fill: yellow;
+  opacity: 50%;
+}
+.mountain {
+  fill: brown;
+  opacity: 50%;
+}
+.volcanic {
+  fill: red;
+  opacity: 50%;
+}
+.swamp {
+  fill: darkgreen;
+  opacity: 50%;
+}
