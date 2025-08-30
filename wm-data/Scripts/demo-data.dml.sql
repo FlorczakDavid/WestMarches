@@ -1,4 +1,4 @@
--- --- Clear existing demo map for QweUser (if it exists) ---
+-- DATA FOR DEMO MAP
 DO $$
 DECLARE
     map_id INT;
@@ -12,11 +12,11 @@ BEGIN
     END IF;
 END $$;
 
--- --- Create a demo map for QweUser ---
+
 INSERT INTO t_maps (user_id, name, width, height)
 SELECT id, 'Demo Map - Greenshore', 12, 12 FROM t_users WHERE email = 'qwe@qwe.com';
 
--- --- Insert consistent terrain tiles ---
+
 DO $$
 DECLARE
     map_id INT;
