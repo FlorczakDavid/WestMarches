@@ -72,10 +72,9 @@ public class SecurityConfig {
 	@Bean
     JwtProvider jwtProvider() {
 		Algorithm algorithm = Algorithm.HMAC256(secret);
-    	return new JwtProvider(algorithm, exp, issuer);
+      return new JwtProvider(algorithm, exp, issuer);
     }
 	
-	//Resources server config
 	@Bean
 	JwtDecoder jwtDecoder() { 
 		SecretKey secretKey = new SecretKeySpec(secret.getBytes(), "HMACSHA256");

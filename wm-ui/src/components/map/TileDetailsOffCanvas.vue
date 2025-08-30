@@ -1,6 +1,5 @@
 <script>
 import PointOfInterestDetails from "./PointOfInterestDetails.vue";
-import api from "@/services/api";
 
 export default {
   props: {
@@ -19,7 +18,7 @@ export default {
   },
   watch: {
     details: function (newDetails) {
-      api
+      this.$api
         .get("/poi/tile", {
           params: {
             email: localStorage.getItem("user"),
@@ -32,7 +31,9 @@ export default {
           console.log(response.data.poiName);
           this.pointsOfInterest = response.data;
         })
-        .catch((error) => console.error(error));
+        .catch(() => { 
+          /* already handled by interceptor */
+        });
     },
   },
   methods: {
@@ -75,12 +76,12 @@ export default {
       <h1>{{ this.details.terrain }}</h1>
       <p>{{ this.details.description }}</p>
       <h2>{{ $t("tileDetails.poiSubtitle") }}</h2>
-      <div class="accordion accordion-flush" v-if="this.pointsOfInterest">
+      <div class="accordion accordion-flush" id="poi-accordion">
         <div v-for="(pointOfInterest, index) in this.pointsOfInterest" :key="`x: ${this.details.x}, y:${this.details.y}`">
           <PointOfInterestDetails
             :context="this.details"
             :details="pointOfInterest"
-            :index="index"
+            :poiIndex="index"
           ></PointOfInterestDetails>
         </div>
       </div>

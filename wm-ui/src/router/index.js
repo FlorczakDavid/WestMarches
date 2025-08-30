@@ -2,12 +2,25 @@ import { createRouter, createWebHistory } from "vue-router";
 
 function isTokenValid() {
   const exp = localStorage.getItem("exp");
-  return exp && parseInt(exp) * 1000 > Date.now();
+  return !!exp && Number(exp) * 1000 > Date.now();
+}
+
+function getRoles() {
+  const raw = localStorage.getItem("roles");
+  if (!raw) return [];
+  try {
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed)) return parsed;
+  } catch (_) {}
+  
+  return String(raw)
+    .split(/[, ]+/)
+    .map((r) => r.trim())
+    .filter(Boolean);
 }
 
 function hasRole(role) {
-  const roles = localStorage.getItem("roles");
-  return roles && roles.includes(role);
+  return getRoles().includes(role);
 }
 
 const router = createRouter({
@@ -16,12 +29,7 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      redirect: () => {
-        if (isTokenValid()) {
-          return { name: "map" };
-        }
-        return { name: "login" };
-      },
+      redirect: () => (isTokenValid() ? { name: "map" } : { name: "login" }),
     },
     {
       path: "/login",
@@ -37,9 +45,15 @@ const router = createRouter({
       path: "/map",
       name: "map",
       component: () => import("../views/MapView.vue"),
-      beforeEnter: () => {
-        return isTokenValid() && hasRole("ROLE_pc ") ? true : { name: "login" };
+      meta: {
+        requiresAuth: true,
+        roles: ["ROLE_pc "], 
       },
+    },
+    {
+      path: "/general-conditions-of-use-and-privay-policy",
+      name: "legal",
+      component: () => import("../views/LegalView.vue"),
     },
     {
       path: "/:pathMatch(.*)*",
@@ -47,6 +61,20 @@ const router = createRouter({
       component: () => import("../views/NotFound.vue"),
     },
   ],
+});
+
+router.beforeEach((to) => {
+  const authed = isTokenValid();
+
+  if (to.meta?.requiresAuth && !authed) {
+    return { name: "login", replace: true };
+  }
+
+  if (authed && (to.name === "login" || to.name === "register")) {
+    return { name: "map", replace: true };
+  }
+
+  return true;
 });
 
 export default router;

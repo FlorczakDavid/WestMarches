@@ -28,7 +28,8 @@ public class PointOfInterestController {
 	@GetMapping("/tile")
 	Object getAccount(@RequestParam String email, @RequestParam String map,  @RequestParam int x,  @RequestParam int y) {
 		PointOfInterestRequest input = new PointOfInterestRequest(email, map, x, y);
-		return service.getTilePoIs(input);
+		Object ret = service.getTilePoIs(input);
+		return ret;
 	}
 }
 

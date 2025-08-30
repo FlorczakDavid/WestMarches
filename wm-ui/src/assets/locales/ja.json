@@ -1,0 +1,151 @@
+{
+  "auth": {
+    "loginTitle": "ログイン",
+    "registerTitle": "登録",
+    "emailLabel": "メールアドレス",
+    "passwordLabel": "パスワード",
+    "registerLink": "アカウントがありませんか？ こちらから登録！",
+    "loginLink": "すでにアカウントをお持ちですか？ こちらからログイン！",
+    "submitButton": "送信",
+    "emailError": "有効なメールアドレスを入力してください。",
+    "passwordError": "パスワードは8文字以上で、英字、数字、次の記号のいずれかを含める必要があります: ';:*-!'"
+  },
+  "errors": {
+    "404": {
+      "goBackButton": "戻る"
+    }
+  },
+  "header": {
+    "profile": "プロフィール"
+  },
+  "footer": {
+    "gcu": "利用規約",
+    "privacyPolicy": "プライバシーポリシー",
+    "disclamer": "このプロジェクトは学校課題の一環として開発されました"
+  },
+  "common": {
+    "close": "閉じる"
+  },
+  "map": {
+    "title": "地図",
+    "tileAriaLabel": "座標 x: {x}, y: {y} のマス。地形: {terrain}"
+  },
+  "mouseFunctionPicker": {
+    "displayLabel": "表示",
+    "editLabel": "編集"
+  },
+  "tileDetails": {
+    "editButton": "編集",
+    "poiSubtitle": "注目地点:",
+    "eventSubtitle": "イベント"
+  },
+  "editTileModal": {
+    "modalTitle": "マスを編集",
+    "tileDetailsTitle": "マスの詳細",
+    "coordinates": "座標:",
+    "description": "説明:",
+    "poiSubtitle": "注目地点",
+    "addEvent": "イベントを追加",
+    "addPOI": "注目地点を追加",
+    "cancel": "キャンセル",
+    "save": "変更を保存"
+  },
+  "tile": {
+    "poiNameInputPlaceholder": "注目地点の名前を入力",
+    "poiDescTextareaPlaceholder": "注目地点の説明を入力",
+    "eventNameInputPlaceholder": "イベント名を入力",
+    "eventDescTextareaPlaceholder": "イベントの説明を入力",
+    "aria": {
+      "coordinates": "マスの座標",
+      "description": "マスの説明",
+      "poiNameInput": "注目地点名入力フィールド",
+      "poiDeleteButton": "注目地点削除ボタン",
+      "poiDescTextarea": "注目地点説明テキストエリア",
+      "eventNameInput": "イベント名入力フィールド",
+      "eventDeleteButton": "イベント削除ボタン",
+      "eventDescTextarea": "イベント説明テキストエリア"
+    }
+  },
+  "terrain": {
+    "forest": "森",
+    "grassland": "草原",
+    "beach": "浜辺",
+    "sea": "海",
+    "roughland": "荒地",
+    "urban": "都市",
+    "ocean": "大洋",
+    "snow": "雪",
+    "desert": "砂漠",
+    "mountain": "山",
+    "volcanic": "火山",
+    "swamp": "沼地",
+    "empty": "空白"
+  },
+  "gcu": {
+    "title": "利用規約",
+    "effectiveDate": "施行日:",
+    "purpose": "WestMarches アプリは、ロールプレイングキャンペーン用に地図ベースのメモを作成・管理できる、無料のオープンソースアプリケーションです。",
+    "access": {
+      "title": "アクセスとアカウント",
+      "text": "本アプリを利用するには、メールアドレスとパスワードによるアカウント作成が必要です。ログイン情報の管理は利用者の責任です。"
+    },
+    "userContent": {
+      "title": "ユーザーコンテンツ",
+      "text": "テキストベースのコンテンツ（マスの詳細、メモ）を追加できます。管理者による監視は行いません。入力したコンテンツについては利用者が責任を負います。管理者はユーザーコンテンツに権利を主張しません。"
+    },
+    "intellectualProperty": {
+      "title": "知的財産権",
+      "text": "本アプリのソースコードはオープンソースであり、GitHub 上のリポジトリの LICENSE ファイルに記載されたライセンスに従います。",
+      "repoLink": "GitHub リポジトリを見る:"
+    },
+    "acceptableUse": {
+      "title": "利用上の注意",
+      "text": "本アプリにはユーザー間の通信機能はありません。違法目的や妨害行為のためにアプリを利用しないことに同意するものとします。"
+    },
+    "liability": {
+      "title": "責任",
+      "text": "本アプリは「現状有姿」で提供され、いかなる保証もありません。開発者はダウンタイム、データ損失、または利用による損害について責任を負いません。"
+    },
+    "termination": {
+      "title": "利用終了",
+      "text": "開発者によるアカウント停止や削除機能はありません。利用者はいつでもアプリの利用をやめることができます。"
+    },
+    "changes": {
+      "title": "変更",
+      "text": "本規約は随時更新される場合があります。アプリの継続利用は新しい規約への同意を意味します。"
+    }
+  },
+  "privacyPolicy": {
+    "title": "プライバシーポリシー",
+    "effectiveDate": "施行日:",
+    "intro": "このプライバシーポリシーは、WestMarches アプリがあなたの情報をどのように収集・保存・利用するかを説明します。アプリを利用することで、このポリシーに同意したものとみなされます。",
+    "dataCollected": {
+      "title": "収集するデータ",
+      "text": "アカウント作成時にメールアドレスとパスワード（暗号化済み）を収集します。また、地図マスに入力したテキストや関連機能のデータも保存します。アプリはブラウザの localStorage を利用してセッションデータを管理します。"
+    },
+    "dataUse": {
+      "title": "データの利用方法",
+      "text": "あなたのデータは、ログイン、進行状況の保存、アカウントへのアクセスを可能にするためだけに利用されます。販売やマーケティング目的で利用されることはありません。"
+    },
+    "dataSharing": {
+      "title": "データの共有",
+      "text": "本アプリは認証のために Auth0 を使用して JWT トークンを生成します。データは教育プロジェクトの環境（AWS）が提供するサーバーに保存されます。他の第三者とデータを共有することはありません。"
+    },
+    "dataRetention": {
+      "title": "データ保持",
+      "text": "データはアカウントが存在する限り保存されます。現時点ではアカウント削除や非アクティブアカウントの自動削除機能は提供していません。"
+    },
+    "security": {
+      "title": "セキュリティ",
+      "text": "パスワードは保存前に暗号化されます。完全に安全なシステムは存在しません。アプリを利用することで、オンライン保存に伴うリスクを承諾するものとします。"
+    },
+    "rights": {
+      "title": "あなたの権利",
+      "text": "EU 法（GDPR）の下で、個人データへのアクセス、誤りの修正、削除を要求する権利があります。{email} までご連絡ください。"
+    },
+    "changes": {
+      "title": "変更",
+      "text": "このプライバシーポリシーは随時更新される場合があります。アプリの継続利用は更新されたポリシーへの同意を意味します。"
+    }
+  }
+}

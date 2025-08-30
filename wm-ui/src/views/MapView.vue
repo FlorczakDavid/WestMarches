@@ -1,8 +1,7 @@
 <script>
-import HexMap from "@/components/HexMap.vue";
-import MouseFunctionPicker from "@/components/MouseFunctionPicker.vue";
-import MapPickerTab from "@/components/MapPickerTab.vue";
-import api from "@/services/api";
+import HexMap from "@/components/map/HexMap.vue";
+import MouseFunctionPicker from "@/components/map/MouseFunctionPicker.vue";
+import MapPickerTab from "@/components/map/MapPickerTab.vue";
 import { computed } from "vue";
 
 export default {
@@ -20,7 +19,7 @@ export default {
   },
   watch: {
     selectedMap(newSelectedMap) {
-      api
+      this.$api
         .get("/tile/map", {
           params: {
             email: localStorage.getItem("user"),
@@ -30,7 +29,9 @@ export default {
         .then((response) => {
           this.tiles = response.data;
         })
-        .catch((error) => console.error(error));
+        .catch(() => { 
+          /* already handled by interceptor */
+        });
     },
   },
   components: {
@@ -42,9 +43,7 @@ export default {
     const user = localStorage.getItem("user");
     const roles = localStorage.getItem("roles");
     const token = localStorage.getItem("token");
-    console.log("user: " + user, "roles: " + roles, "token:" + token);
-    console.log(localStorage);
-    api
+    this.$api
       .get("/map/user", {
         params: { email: user },
       })
@@ -52,16 +51,15 @@ export default {
         this.maps = response.data;
         this.selectedMap = response.data[0];
       })
-      .catch((error) => console.error(error));
+      .catch(() => { 
+        /* already handled by interceptor */
+      });
   },
 };
 </script>
 <template>
   <div class="head">
     <h1>{{ $t("map.title") }}</h1>
-    <div class="maquette content">
-      <h3>Player Five's Maps</h3>
-    </div>
     <MapPickerTab
       v-if="this.selectedMap && this.maps"
       :maps="maps"

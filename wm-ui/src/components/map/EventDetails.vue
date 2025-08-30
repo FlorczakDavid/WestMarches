@@ -1,8 +1,9 @@
 <script>
 export default {
   props: {
-    details: {},
-    index: null,
+    details: Object,
+    poiId: String,
+    index: Number,
   },
 };
 </script>
@@ -14,17 +15,17 @@ export default {
         class="accordion-button collapsed"
         type="button"
         data-bs-toggle="collapse"
-        :data-bs-target="'#event-accordion-' + index"
+        :data-bs-target="'#event-' + poiId + '-' + index"
         aria-expanded="false"
-        :aria-controls="'event-accordion-' + index"
+        :aria-controls="'event-' + poiId + '-' + index"
       >
         {{ this.details.name }}
       </button>
     </h2>
     <div
-      :id="'event-accordion-' + index"
+      :id="'event-' + poiId + '-' + index"
       class="accordion-collapse collapse"
-      data-bs-parent="#event-accordion"
+      :data-bs-parent="'#event-accordion-' + poiId"
     >
       <div class="accordion-body">
         {{ this.details.description }}

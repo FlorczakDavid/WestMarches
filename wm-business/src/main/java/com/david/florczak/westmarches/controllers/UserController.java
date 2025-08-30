@@ -1,5 +1,7 @@
 package com.david.florczak.westmarches.controllers;
 
+import java.util.Optional;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.david.florczak.westmarches.dtos.UserCreate;
 import com.david.florczak.westmarches.dtos.UserLogin;
+import com.david.florczak.westmarches.dtos.UserLoginInfo;
+import com.david.florczak.westmarches.entities.User;
 import com.david.florczak.westmarches.services.UserService;
 
 import jakarta.validation.Valid;
@@ -18,7 +22,6 @@ import jakarta.validation.Valid;
 @RequestMapping("/user")
 public class UserController {
 
-	//injection de dependences
 	private final UserService service;
 	
 	public UserController(UserService service) {
@@ -33,17 +36,12 @@ public class UserController {
 
 	@PostMapping("/login")
 	@ResponseStatus(HttpStatus.CREATED)
-	Object login(@RequestBody UserLogin inputs) {
+	UserLoginInfo login(@RequestBody UserLogin inputs) {
 		return service.login(inputs);
 	}
 	
-	@GetMapping("/test")
-	String test() {
-		return "hello!";
-	}
-	
 	@GetMapping("/user")
-	Object getAccount(@RequestBody UserLogin inputs) {
+	Optional<User> getAccount(@RequestBody UserLogin inputs) {
 		return service.getUser(inputs.email());
 	}
 }

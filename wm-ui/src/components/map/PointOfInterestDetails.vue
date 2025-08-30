@@ -1,12 +1,11 @@
 <script>
 import EventDetails from "./EventDetails.vue";
-import api from "@/services/api";
 
 export default {
   props: {
-    details: null,
-    context: null,
-    index: null,
+    details: Object,
+    context: Object,
+    poiIndex: Number,
   },
   inject: ["selectedMap"],
   components: {
@@ -15,6 +14,7 @@ export default {
   data() {
     return {
       events: null,
+      uniqueId: `${this.context.x}-${this.context.y}-${this.poiIndex}`
     };
   },
   watch: {
@@ -24,7 +24,7 @@ export default {
       handler(newDetails) {
       console.log("newDetails: ");
       console.log(newDetails);
-      api
+      this.$api
         .get("/event/poi", {
           params: {
             email: localStorage.getItem("user"),
@@ -37,7 +37,9 @@ export default {
         .then((response) => {
           this.events = response.data;
         })
-        .catch((error) => console.error(error));
+        .catch(() => { 
+          /* already handled by interceptor */
+        });
     },
     } 
   },
@@ -51,24 +53,24 @@ export default {
         class="accordion-button collapsed"
         type="button"
         data-bs-toggle="collapse"
-        :data-bs-target="'#poi-accordion-' + index"
+        :data-bs-target="'#poi-' + uniqueId"
         aria-expanded="false"
-        :aria-controls="'poi-accordion-' + index"
+        :aria-controls="'poi-' + uniqueId"
       >
         {{ this.details.name }}
       </button>
     </h2>
     <div
-      :id="'poi-accordion-' + index"
+      :id="'poi-' + uniqueId"
       class="accordion-collapse collapse"
       data-bs-parent="#poi-accordion"
     >
       <div class="accordion-body">
         <p>{{ this.details.description }}</p>
         <h3>{{ $t("tileDetails.eventSubtitle") }}</h3>
-        <div class="accordion accordion-flush" id="event-accordion" v-if="this.events">
-          <div v-for="(event, index) in this.events" :key="event.name">
-            <EventDetails :details="event" :index="index"></EventDetails>
+        <div class="accordion accordion-flush" :id="'event-accordion-' + uniqueId" v-if="this.events">
+          <div v-for="(event, eventIndex) in this.events" :key="eventIndex">
+            <EventDetails :details="event" :poiId="uniqueId" :index="eventIndex"></EventDetails>
           </div>
         </div>
       </div>

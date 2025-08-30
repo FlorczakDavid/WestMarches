@@ -1,7 +1,6 @@
 <script>
 import { useVuelidate } from "@vuelidate/core";
 import { helpers, maxLength, minLength, required } from "@vuelidate/validators";
-import api from "../services/api.js";
 
 const passwordRegex = helpers.regex(
   /^(?=.*[A-Za-z])(?=.*\d)(?=.*[;:*\-!]).{8,}$/,
@@ -9,8 +8,6 @@ const passwordRegex = helpers.regex(
 const emailRegex = helpers.regex(
   /^(?=.{1,64}@)\w+([.-]?\w+)*@(?=.{4,252}$)\w+([.-]?\w+)*(\.\w{2,4})+$/,
 );
-// check the email in the server
-// const isEmailTaken = (value) => fetch(`/api/unique/${value}`).then(r => r.json())
 
 export default {
   setup() {
@@ -47,32 +44,18 @@ export default {
       const isFormCorrect = await this.v$.$validate();
       if (!isFormCorrect) return;
 
-      api
+      this.$api
         .post("/user", {
           email: this.inputs.email,
           password: this.inputs.password,
           username: this.inputs.email.split("@")[0],
         })
-        .then(function (response) {
-          console.log("then " + response);
+        .then(() => {
+          this.$toastSuccess("toasts.registerSuccess");
+          this.$router.push({ name: "login" });
         })
-        .catch(function (error) {
-          if (error.response) {
-            // The request was made and the server responded with a status code
-            // that falls out of the range of 2xx
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          } else if (error.request) {
-            // The request was made but no response was received
-            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-            // http.ClientRequest in node.js
-            console.log("error " + error.request);
-          } else {
-            // Something happened in setting up the request that triggered an Error
-            console.log("Error", error.message);
-          }
-          console.log("last " + error.config);
+        .catch(() => {
+          /* already handled by interceptor */
         });
     },
   },
@@ -84,9 +67,9 @@ export default {
     <h1>{{ $t("auth.registerTitle") }}</h1>
     <form @submit.prevent="submit" novalidate>
       <div className="mb-3">
-        <h2 htmlFor="email" className="form-label">
+        <label for="email" class="form-label">
           {{ $t("auth.emailLabel") }}
-        </h2>
+        </label>
         <input
           v-model="inputs.email"
           type="email"
@@ -99,9 +82,9 @@ export default {
         </div>
       </div>
       <div className="mb-3">
-        <h2 htmlFor="password" className="form-label">
+        <label for="password" class="form-label">
           {{ $t("auth.passwordLabel") }}
-        </h2>
+        </label>
         <input
           v-model="inputs.password"
           type="password"
@@ -117,5 +100,19 @@ export default {
         {{ $t("auth.submitButton") }}
       </button>
     </form>
+    <nav>
+      <RouterLink to="/login">{{ $t("auth.loginLink") }}</RouterLink>
+    </nav>
   </div>
 </template>
+
+<style scoped>
+label.form-label {
+  display: block;
+  font-family: "gin";
+  color: #5d0000;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: .5rem;
+}
+</style>

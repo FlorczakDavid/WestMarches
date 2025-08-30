@@ -75,10 +75,10 @@ public class TileService {
 	    for (TileChange change : differences) {
 	        switch (change.type()) {
 	            case CREATE -> {
-	                if (change.eventName() == null) { // POI creation
+	                if (change.eventName() == null) { 
 	                    PointOfInterest poi = new PointOfInterest(change.poiName(), change.poiDescription(), tile);
 	                    pointsOfInterest.save(poi);
-	                } else { // Event creation
+	                } else { 
 	                    PointOfInterest poi = pointsOfInterest
 	                        .findByNameAndTile(change.poiName(), tile);
 	                    Event event = new Event(change.eventName(), change.eventDescription(), poi);
@@ -86,15 +86,15 @@ public class TileService {
 	                }
 	            }
 	            case UPDATE -> {
-	                if (change.poiName() == null) { // Tile description update
+	                if (change.poiName() == null) { 
 	                    tile.setDescription(change.poiDescription());
 	                    tiles.save(tile);
-	                } else if (change.eventName() == null) { // POI description update
+	                } else if (change.eventName() == null) { 
 	                    PointOfInterest poi = pointsOfInterest
 	                        .findByNameAndTile(change.poiName(), tile);
 	                    poi.setDescription(change.poiDescription());
 	                    pointsOfInterest.save(poi);
-	                } else { // Event description update
+	                } else { 
 	                    Event event = events.findByPoiTileAndPoiNameAndName(
 	                        tile, change.poiName(), change.eventName());
 	                    event.setDescription(change.eventDescription());
@@ -102,9 +102,9 @@ public class TileService {
 	                }
 	            }
 	            case DELETE -> {
-	                if (change.eventName() == null) { // POI deletion
+	                if (change.eventName() == null) { 
 	                    pointsOfInterest.deleteByNameAndTile(change.poiName(), tile);
-	                } else { // Event deletion
+	                } else { 
 	                    events.deleteByPoiTileAndPoiNameAndName(tile, change.poiName(), change.eventName());
 	                }
 	            }
@@ -119,7 +119,7 @@ public class TileService {
 		) {
 		    List<TileChange> changes = new ArrayList<>();
 
-		    // Check tile description
+		    
 		    if (!incomingDetails.description().equals(currentDetails.description())) {
 		        changes.add(new TileChange(
 		            ChangeType.UPDATE, null, incomingDetails.description(), null, null));
@@ -131,13 +131,13 @@ public class TileService {
 		    Map<String, DetailedPointOfInterest> currentPois = currentDetails.pointsOfInterest()
 		        .stream().collect(Collectors.toMap(DetailedPointOfInterest::name, poi -> poi));
 
-		    // Identify created or updated POIs and Events
+		    
 		    for (var entry : incomingPois.entrySet()) {
 		        String poiName = entry.getKey();
 		        DetailedPointOfInterest incomingPoi = entry.getValue();
 
 		        if (!currentPois.containsKey(poiName)) {
-		            // New POI
+		            
 		            changes.add(new TileChange(
 		                ChangeType.CREATE, poiName, incomingPoi.description(), null, null));
 		            for (EventGet event : incomingPoi.events()) {
@@ -145,7 +145,7 @@ public class TileService {
 		                    ChangeType.CREATE, poiName, null, event.name(), event.description()));
 		            }
 		        } else {
-		            // Existing POI: check updates
+		            
 		            DetailedPointOfInterest currentPoi = currentPois.get(poiName);
 		            if (!incomingPoi.description().equals(currentPoi.description())) {
 		                changes.add(new TileChange(
@@ -173,7 +173,7 @@ public class TileService {
 		                    }
 		                }
 		            }
-		            // Deleted events
+		            
 		            for (String eventName : currentEvents.keySet()) {
 		                if (!incomingEvents.containsKey(eventName)) {
 		                    changes.add(new TileChange(
@@ -183,7 +183,7 @@ public class TileService {
 		        }
 		    }
 
-		    // Deleted POIs
+		    
 		    for (String poiName : currentPois.keySet()) {
 		        if (!incomingPois.containsKey(poiName)) {
 		            changes.add(new TileChange(ChangeType.DELETE, poiName, null, null, null));

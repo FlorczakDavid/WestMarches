@@ -58,9 +58,6 @@ export default {
           e.target.instance.stroke("#999");
         })
         .click((e) => {
-          // TODO - if Display checked, do something
-          // TODO - if Edit checked, do something
-          // TODO - if Draw checked, do something
           this.offcanvas = new Offcanvas("#offcanvasScrolling");
           const coordinates = e.target.instance.data("coordinates").value;
           this.tileDetails = this.tiles.find(
@@ -96,7 +93,7 @@ export default {
         polygon.addClass(terrain);
 
         const iconUrl = new URL(
-          `../assets/svgs/${terrain}.svg`,
+          `../../assets/svgs/${terrain}.svg`,
           import.meta.url,
         ).href;
         const icon = draw.image(iconUrl);
@@ -115,8 +112,6 @@ export default {
     showTileEditModal() {
       this.offcanvas.hide();
       const tileEditModal = new Modal("#tileDetailsEditModal");
-      // const coordinates = e.target.instance.data('coordinates').value;
-      // this.tileDetails = this.tiles.find((tile) => tile.x === coordinates.x && tile.y === coordinates.y);
       tileEditModal.show();
     },
   },
@@ -134,54 +129,4 @@ export default {
     v-if="this.tileDetails"
     :details="this.tileDetails"
   ></TileEditModal>
-  <div class="maquette">
-    <div
-      class="offcanvas offcanvas-end"
-      data-bs-scroll="true"
-      tabindex="-1"
-      id="offcanvasRight"
-      aria-labelledby="offcanvasRightLabel"
-    >
-      <div class="offcanvas-header container head">
-        <h1 class="offcanvas-title col-9" id="offcanvasRightLabel">
-          Player List
-        </h1>
-        <button
-          type="button"
-          class="btn-close col"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="offcanvas-body content">
-        <div class="input-group mb-3">
-          <span
-            class="input-group-text material-symbols-outlined"
-            id="basic-addon1"
-            >search</span
-          >
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Username"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <ul class="list-group">
-          <li class="list-group-item odd" aria-current="true">QweUser</li>
-          <li class="list-group-item active even">PlayerFive</li>
-          <li class="list-group-item odd">مستخدم</li>
-          <li class="list-group-item even">Alex</li>
-          <li class="list-group-item odd">Bertrand</li>
-          <li class="list-group-item even">Claude</li>
-          <li class="list-group-item odd">Daniel</li>
-          <li class="list-group-item even">Emmanuelle</li>
-          <li class="list-group-item odd">Félix</li>
-          <li class="list-group-item even">Gérard</li>
-          <li class="list-group-item odd">Hubert</li>
-        </ul>
-      </div>
-    </div>
-  </div>
 </template>

@@ -1,0 +1,41 @@
+json
+{"email": "robert@fakemail.com","password": ""}
+{"email": "robert@fakemail.com","password": null}
+{"email": "robert@fakemail.com","password": " "}
+{"email": "robert@fakemail.com","password": "qweqwe11"}
+{"email": "robert@fakemail.com","password": "qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!"}
+
+{"email": "robert@@fakemail.com","password": "qweqwe1!"}
+{"email": "robert@@fakemail.com","password": ""}
+{"email": "robert@@fakemail.com","password": null}
+{"email": "robert@@fakemail.com","password": " "}
+{"email": "robert@@fakemail.com","password": "qweqwe11"}
+{"email": "robert@@fakemail.com","password": "qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!"}
+
+{"email": "","password": "qweqwe1!"}
+{"email": "","password": ""}
+{"email": "","password": null}
+{"email": "","password": " "}
+{"email": "","password": "qweqwe11"}
+{"email": "","password": "qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!"}
+
+{"email": null,"password": "qweqwe1!"}
+{"email": null,"password": ""}
+{"email": null,"password": null}
+{"email": null,"password": " "}
+{"email": null,"password": "qweqwe1!"}
+{"email": null,"password": "qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!"}
+
+{"email": " ","password": "qweqwe1!"}
+{"email": " ","password": ""}
+{"email": " ","password": null}
+{"email": " ","password": " "}
+{"email": " ","password": "qweqwe11"}
+{"email": " ","password": "qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!"}
+
+{"email": "robertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobert@fakemail.com","password": "qweqwe1!"}
+{"email": "robertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobert@fakemail.com","password": ""}
+{"email": "robertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobert@fakemail.com","password": null}
+{"email": "robertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobert@fakemail.com","password": " "}
+{"email": "robertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobert@fakemail.com","password": "qweqwe11"}
+{"email": "robertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobertrobert@fakemail.com","password": "qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!qweqwe1!"}

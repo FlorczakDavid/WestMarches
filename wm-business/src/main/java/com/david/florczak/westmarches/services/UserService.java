@@ -1,5 +1,6 @@
 package com.david.florczak.westmarches.services;
 
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.security.authentication.BadCredentialsException;
@@ -41,7 +42,7 @@ public class UserService {
 	public void create(UserCreate inputs) {
 		User user = new User();
 		user.setEmail(inputs.email().toLowerCase());
-		user.setUsername(inputs.username());
+		user.setUsername(inputs.email().toLowerCase());
 		String hashedPassword = encoder.encode(inputs.password());
 		user.setPassword(hashedPassword);
 		Role defaultRole = roles.findByIsDefaultTrue();
@@ -64,7 +65,7 @@ public class UserService {
 		return provider.createUserLoginInfo(email, sentRoles);
 	}
 
-	public Object getUser(String name) {
+	public Optional<User> getUser(String name) {
 		return users.getByEmailIgnoreCase(name);
 	}
 

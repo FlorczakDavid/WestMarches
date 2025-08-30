@@ -46,8 +46,6 @@ public class TileController {
 	@PatchMapping("/")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	void editTile(@Valid @RequestBody TileEditDetails input) {
-		System.out.println(input);
 		service.updateTileDeepDetails(input);
 	}
 }
-

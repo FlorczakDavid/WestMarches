@@ -157,3 +157,7 @@ body {
 .odd {
   background: #f4eee0;
 }
+
+.my-component {
+  font-size: calc(1rem * var(--zoom));
+}

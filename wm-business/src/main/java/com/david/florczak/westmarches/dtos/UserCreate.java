@@ -14,14 +14,12 @@ public record UserCreate(
 		String email, 
 		@NotBlank @Size(max = 60) 
 		@Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[;:\\*\\-!]).{8,}$") 
-		String password, 
-		@NotBlank @Size(max = 50) 
-		String username) 
+		String password)
 {
 
 	@Override
 	public String toString() {
-		return "UserCreate [email=" + email + ", password=[PROTECTED], username=" + username+ "]";
+		return "UserCreate [email=" + email + ", password=[PROTECTED]]";
 	}
 
 	@Override

@@ -6,14 +6,52 @@
     "passwordLabel": "Password",
     "registerLink": "No account? Register here!",
     "loginLink": "Already have an account? Login here!",
-    "submitButton": "Submit",
-    "emailError": "Please enter a valid email address.",
-    "passwordError": "Password must be at least 8 characters, including a letter, a number, and one of: ';:*-!'"
+    "submitButton": "Submit"
   },
   "errors": {
-    "404": {
-      "goBackButton": "Go back"
+    "http": {
+      "400": "Bad request.",
+      "401": "Identification failed",
+      "403": "You don’t have permission to do that.",
+      "404": "We couldn’t find that.",
+      "408": "Request timed out. Try again.",
+      "409": "Conflict. Please refresh and retry.",
+      "422": "Some fields are invalid. Please check and try again.",
+      "429": "Too many requests. Please slow down.",
+      "500": "Server error. Please try again later.",
+      "502": "Bad gateway. Please try again later.",
+      "503": "Service unavailable. Please try again later.",
+      "default": "Unexpected error ({code})."
+    },
+    "network": "No response from server. Check your connection.",
+    "setup": "Error setting up the request.",
+    "unhandledError": "Something went wrong.",
+    "validation": {
+      "auth": {
+        "emailError": "Please enter a valid email address.",
+        "passwordError": "Password must be at least 8 characters, including a letter, a number, and one of: ';:*-!'"
+      },
+      "tileEdit": {
+        "eventName": {
+          "required": "Each Event should have a title",
+          "maxLength": "An Event's Title's length can't be above 100 characters"
+        },
+        "poiName": {
+          "required": "Each Point of Interest should have a title",
+          "maxLength": "An Point of Interest's Title's length can't be above 100 characters"
+        }
+      }
     }
+  },
+  "toasts": {
+    "loginSuccess": "Logged in.",
+    "registerSuccess": "Account created. Please wait for the admin to create your maps before logging in.",
+    "saved": "Saved.",
+    "updated": "Updated.",
+    "deleted": "Deleted."
+  },
+  "header": {
+    "profile": "profile"
   },
   "footer": {
     "gcu": "GCU",
@@ -77,5 +115,72 @@
     "volcanic": "volcanic",
     "swamp": "swamp",
     "empty": "empty"
+  },
+  "gcu": {
+    "title": "General Conditions of Use",
+    "effectiveDate": "Effective Date:",
+    "purpose": "The WestMarches App is a free, open source application that allows users to create and manage map-based notes for role-playing campaigns.",
+    "access": {
+      "title": "Access & Accounts",
+      "text": "Use of the App requires account creation with an email and password. You are responsible for maintaining the confidentiality of your login details."
+    },
+    "userContent": {
+      "title": "User Content",
+      "text": "You may add text-based content (tile details, notes). No moderation is performed. You remain responsible for the content you enter. The owner claims no rights over user content."
+    },
+    "intellectualProperty": {
+      "title": "Intellectual Property",
+      "text": "The App’s source code is open source and available on GitHub under the license specified in the repository’s LICENSE file.",
+      "repoLink": "See GitHub Repository:"
+    },
+    "acceptableUse": {
+      "title": "Acceptable Use",
+      "text": "The App does not include communication features between users. You agree not to misuse the App for illegal purposes or attempts to disrupt its functioning."
+    },
+    "liability": {
+      "title": "Liability",
+      "text": "The App is provided 'as is', without warranties of any kind. The owner is not liable for downtime, data loss, or any damages resulting from the use of the App."
+    },
+    "termination": {
+      "title": "Termination",
+      "text": "The App does not provide account suspension or deletion by the owner. Users may stop using the App at any time."
+    },
+    "changes": {
+      "title": "Changes",
+      "text": "These Terms may be updated at any time. Continued use of the App constitutes acceptance of the new version."
+    }
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "effectiveDate": "Effective Date:",
+    "intro": "This Privacy Policy explains how the WestMarches App collects, stores, and uses your information. By using the App, you agree to this policy.",
+    "dataCollected": {
+      "title": "Data We Collect",
+      "text": "We collect your email address and password (encrypted) when you create an account. We also store text you enter into map tiles and related features. The App uses localStorage in your browser to manage session data."
+    },
+    "dataUse": {
+      "title": "How We Use Your Data",
+      "text": "Your data is used only to allow you to log in, save your progress, and access your account. It is never sold or used for marketing purposes."
+    },
+    "dataSharing": {
+      "title": "Data Sharing",
+      "text": "The App uses Auth0 to generate JWT tokens for authentication. Data is hosted on a server provided by the project’s educational environment (AWS). We do not share your data with other third parties."
+    },
+    "dataRetention": {
+      "title": "Data Retention",
+      "text": "Your data remains stored as long as your account exists. The App does not currently provide account deletion or automatic deletion of inactive accounts."
+    },
+    "security": {
+      "title": "Security",
+      "text": "Passwords are encrypted before storage. No system is fully secure; by using the App, you accept the risks inherent to online storage."
+    },
+    "rights": {
+      "title": "Your Rights",
+      "text": "As a user under EU law (GDPR), you may request access to your personal data, correction of errors, or deletion. Contact us at {email}."
+    },
+    "changes": {
+      "title": "Changes",
+      "text": "This Privacy Policy may be updated from time to time. Continued use of the App means you accept the updated policy."
+    }
   }
 }

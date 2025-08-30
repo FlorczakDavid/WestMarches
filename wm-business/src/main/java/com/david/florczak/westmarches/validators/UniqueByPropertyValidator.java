@@ -24,12 +24,12 @@ public class UniqueByPropertyValidator implements ConstraintValidator<UniqueByPr
 		
 		for(Object o: value){
 			BeanWrapperImpl wrapper = new BeanWrapperImpl(o);
-	        Object fieldValue = wrapper.getPropertyValue(fieldName);
-	        if(seenProperties.contains(fieldValue)) {
-	        	ret = false;
-	        } else {
-	        	seenProperties.add(fieldValue);
-	        }
+      Object fieldValue = wrapper.getPropertyValue(fieldName);
+      if(seenProperties.contains(fieldValue)) {
+        ret = false;
+      } else {
+        seenProperties.add(fieldValue);
+      }
 		}
 		return ret;
 	}

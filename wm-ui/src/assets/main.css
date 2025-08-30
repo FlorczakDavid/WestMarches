@@ -1,9 +1,3 @@
-/* maquette statique */
-.maquette * {
-  /* display: none; */
-  /* color: violet !important; */
-}
-
 /* I18N */
 .rtl {
   direction: rtl;
