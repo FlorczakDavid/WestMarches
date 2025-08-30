@@ -54,7 +54,6 @@ public class Role extends AbstractEntity {
 		this.exercisingUsers = exercisingUsers;
 	}
 
-	//avoid collectons
 	@Override
 	public String toString() {
 		return "Role [exercisingUsers=LAZY_LOADED, code=" + code + ", isDefault=" + isDefault + "]";

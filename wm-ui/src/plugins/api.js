@@ -36,7 +36,6 @@ function handleError(error) {
   } else {
     toaster?.error(t("errors.setup"));
   }
-  // Keep rejection so callers can still .catch if they need control flow
   return Promise.reject(error);
 }
 

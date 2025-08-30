@@ -6,14 +6,49 @@
     "passwordLabel": "Mot de passe",
     "registerLink": "Pas de compte ? Inscrivez-vous ici !",
     "loginLink": "Vous avez déjà un compte ? Connectez-vous ici !",
-    "submitButton": "Envoyer",
-    "emailError": "Veuillez entrer une adresse e-mail valide.",
-    "passwordError": "Le mot de passe doit contenir au moins 8 caractères, incluant une lettre, un chiffre et un de ces symboles : ';:*-!'"
+    "submitButton": "Valider"
   },
   "errors": {
-    "404": {
-      "goBackButton": "Retour"
+    "http": {
+      "400": "Requête incorrecte.",
+      "401": "Échec d’identification",
+      "403": "Vous n’avez pas la permission de faire cela.",
+      "404": "Impossible de trouver la ressource demandée.",
+      "408": "Délai d’attente dépassé. Réessayez.",
+      "409": "Conflit. Veuillez actualiser et réessayer.",
+      "422": "Certains champs sont invalides. Vérifiez et réessayez.",
+      "429": "Trop de requêtes. Ralentissez.",
+      "500": "Erreur serveur. Veuillez réessayer plus tard.",
+      "502": "Mauvaise passerelle. Veuillez réessayer plus tard.",
+      "503": "Service indisponible. Veuillez réessayer plus tard.",
+      "default": "Erreur inattendue ({code})."
+    },
+    "network": "Pas de réponse du serveur. Vérifiez votre connexion.",
+    "setup": "Erreur lors de la préparation de la requête.",
+    "unhandledError": "Une erreur est survenue.",
+    "validation": {
+      "auth": {
+        "emailError": "Veuillez entrer une adresse e-mail valide.",
+        "passwordError": "Le mot de passe doit comporter au moins 8 caractères, dont une lettre, un chiffre et un caractère parmi : ';:*-!'"
+      },
+      "tileEdit": {
+        "eventName": {
+          "required": "Chaque événement doit avoir un titre",
+          "maxLength": "La longueur du titre d’un événement ne peut pas dépasser 100 caractères"
+        },
+        "poiName": {
+          "required": "Chaque point d’intérêt doit avoir un titre",
+          "maxLength": "La longueur du titre d’un point d’intérêt ne peut pas dépasser 100 caractères"
+        }
+      }
     }
+  },
+  "toasts": {
+    "loginSuccess": "Connecté.",
+    "registerSuccess": "Compte créé. Veuillez attendre que l’administrateur crée vos cartes avant de vous connecter.",
+    "saved": "Enregistré.",
+    "updated": "Mis à jour.",
+    "deleted": "Supprimé."
   },
   "header": {
     "profile": "profil"
@@ -28,42 +63,42 @@
   },
   "map": {
     "title": "Carte",
-    "tileAriaLabel": "Case aux coordonnées x : {x}, y : {y}. Terrain : {terrain}"
+    "tileAriaLabel": "Case aux coordonnées x: {x}, y: {y}. Le terrain est : {terrain}"
   },
   "mouseFunctionPicker": {
     "displayLabel": "Afficher",
-    "editLabel": "Modifier"
+    "editLabel": "Éditer"
   },
   "tileDetails": {
     "editButton": "Modifier",
-    "poiSubtitle": "Points d'intérêt :",
+    "poiSubtitle": "Points d’intérêt :",
     "eventSubtitle": "Événements"
   },
   "editTileModal": {
-    "modalTitle": "Modifier la case",
+    "modalTitle": "Modifier une case",
     "tileDetailsTitle": "Détails de la case",
     "coordinates": "Coordonnées :",
     "description": "Description :",
-    "poiSubtitle": "Points d'intérêt",
+    "poiSubtitle": "Points d’intérêt",
     "addEvent": "Ajouter un événement",
-    "addPOI": "Ajouter un point d'intérêt",
+    "addPOI": "Ajouter un point d’intérêt",
     "cancel": "Annuler",
     "save": "Enregistrer les modifications"
   },
   "tile": {
-    "poiNameInputPlaceholder": "Entrez le nom du point d'intérêt",
-    "poiDescTextareaPlaceholder": "Entrez la description du point d'intérêt",
-    "eventNameInputPlaceholder": "Entrez le nom de l'événement",
-    "eventDescTextareaPlaceholder": "Entrez la description de l'événement",
+    "poiNameInputPlaceholder": "Entrez le nom du point d’intérêt",
+    "poiDescTextareaPlaceholder": "Entrez la description du point d’intérêt",
+    "eventNameInputPlaceholder": "Entrez le nom de l’événement",
+    "eventDescTextareaPlaceholder": "Entrez la description de l’événement",
     "aria": {
       "coordinates": "coordonnées de la case",
       "description": "description de la case",
-      "poiNameInput": "champ du nom du point d'intérêt",
-      "poiDeleteButton": "bouton de suppression du point d'intérêt",
-      "poiDescTextarea": "zone de texte de description du point d'intérêt",
-      "eventNameInput": "champ du nom de l'événement",
-      "eventDeleteButton": "bouton de suppression de l'événement",
-      "eventDescTextarea": "zone de texte de description de l'événement"
+      "poiNameInput": "champ du nom du point d’intérêt",
+      "poiDeleteButton": "bouton de suppression du point d’intérêt",
+      "poiDescTextarea": "zone de texte de la description du point d’intérêt",
+      "eventNameInput": "champ du nom de l’événement",
+      "eventDeleteButton": "bouton de suppression de l’événement",
+      "eventDescTextarea": "zone de texte de la description de l’événement"
     }
   },
   "terrain": {
@@ -71,7 +106,7 @@
     "grassland": "prairie",
     "beach": "plage",
     "sea": "mer",
-    "roughland": "terrain accidenté",
+    "roughland": "terres accidentées",
     "urban": "urbain",
     "ocean": "océan",
     "snow": "neige",
@@ -83,32 +118,32 @@
   },
   "gcu": {
     "title": "Conditions Générales d’Utilisation",
-    "effectiveDate": "Date d’entrée en vigueur :",
-    "purpose": "L’application WestMarches est une application gratuite et open source qui permet aux utilisateurs de créer et gérer des notes cartographiques pour leurs campagnes de jeu de rôle.",
+    "effectiveDate": "Date d’effet :",
+    "purpose": "L’application WestMarches est une application gratuite et open source qui permet aux utilisateurs de créer et gérer des notes cartographiques pour des campagnes de jeu de rôle.",
     "access": {
       "title": "Accès & Comptes",
       "text": "L’utilisation de l’application nécessite la création d’un compte avec une adresse e-mail et un mot de passe. Vous êtes responsable de la confidentialité de vos identifiants."
     },
     "userContent": {
       "title": "Contenu Utilisateur",
-      "text": "Vous pouvez ajouter du contenu textuel (détails de case, notes). Aucune modération n’est effectuée. Vous restez responsable du contenu saisi. Le propriétaire ne revendique aucun droit sur le contenu utilisateur."
+      "text": "Vous pouvez ajouter du contenu textuel (détails de cases, notes). Aucune modération n’est effectuée. Vous restez responsable du contenu saisi. Le propriétaire ne revendique aucun droit sur le contenu utilisateur."
     },
     "intellectualProperty": {
       "title": "Propriété Intellectuelle",
-      "text": "Le code source de l’application est open source et disponible sur GitHub sous la licence précisée dans le fichier LICENSE du dépôt.",
+      "text": "Le code source de l’application est open source et disponible sur GitHub sous la licence spécifiée dans le fichier LICENSE du dépôt.",
       "repoLink": "Voir le dépôt GitHub :"
     },
     "acceptableUse": {
       "title": "Utilisation Acceptable",
-      "text": "L’application n’inclut pas de fonctionnalités de communication entre utilisateurs. Vous vous engagez à ne pas l’utiliser à des fins illégales ou pour perturber son fonctionnement."
+      "text": "L’application n’inclut pas de fonctionnalités de communication entre utilisateurs. Vous acceptez de ne pas l’utiliser à des fins illégales ou pour tenter de perturber son fonctionnement."
     },
     "liability": {
       "title": "Responsabilité",
-      "text": "L’application est fournie « telle quelle », sans aucune garantie. Le propriétaire n’est pas responsable des pannes, pertes de données ou dommages résultant de son utilisation."
+      "text": "L’application est fournie « telle quelle », sans garantie d’aucune sorte. Le propriétaire n’est pas responsable des pannes, pertes de données ou dommages résultant de son utilisation."
     },
     "termination": {
       "title": "Résiliation",
-      "text": "L’application ne prévoit pas de suspension ou suppression de compte par le propriétaire. Les utilisateurs peuvent arrêter de l’utiliser à tout moment."
+      "text": "L’application ne permet pas la suspension ou la suppression de comptes par le propriétaire. Les utilisateurs peuvent cesser de l’utiliser à tout moment."
     },
     "changes": {
       "title": "Modifications",
@@ -117,19 +152,19 @@
   },
   "privacyPolicy": {
     "title": "Politique de Confidentialité",
-    "effectiveDate": "Date d’entrée en vigueur :",
+    "effectiveDate": "Date d’effet :",
     "intro": "Cette Politique de Confidentialité explique comment l’application WestMarches collecte, stocke et utilise vos informations. En utilisant l’application, vous acceptez cette politique.",
     "dataCollected": {
       "title": "Données Collectées",
-      "text": "Nous collectons votre adresse e-mail et votre mot de passe (chiffré) lors de la création d’un compte. Nous stockons également le texte que vous saisissez dans les cases de la carte et les fonctionnalités associées. L’application utilise le localStorage de votre navigateur pour gérer les données de session."
+      "text": "Nous collectons votre adresse e-mail et votre mot de passe (chiffré) lors de la création d’un compte. Nous stockons également le texte saisi dans les cases de la carte et les fonctionnalités associées. L’application utilise le localStorage de votre navigateur pour gérer les données de session."
     },
     "dataUse": {
       "title": "Utilisation des Données",
-      "text": "Vos données sont utilisées uniquement pour vous permettre de vous connecter, sauvegarder votre progression et accéder à votre compte. Elles ne sont jamais vendues ni utilisées à des fins commerciales."
+      "text": "Vos données sont utilisées uniquement pour vous permettre de vous connecter, sauvegarder votre progression et accéder à votre compte. Elles ne sont jamais vendues ni utilisées à des fins marketing."
     },
     "dataSharing": {
       "title": "Partage des Données",
-      "text": "L’application utilise Auth0 pour générer des jetons JWT d’authentification. Les données sont hébergées sur un serveur fourni par l’environnement éducatif du projet (AWS). Nous ne partageons pas vos données avec d’autres tiers."
+      "text": "L’application utilise Auth0 pour générer des jetons JWT pour l’authentification. Les données sont hébergées sur un serveur fourni par l’environnement éducatif du projet (AWS). Nous ne partageons pas vos données avec d’autres tiers."
     },
     "dataRetention": {
       "title": "Conservation des Données",
@@ -141,11 +176,11 @@
     },
     "rights": {
       "title": "Vos Droits",
-      "text": "En tant qu’utilisateur soumis au droit européen (RGPD), vous pouvez demander l’accès à vos données personnelles, la correction d’erreurs ou leur suppression. Contactez-nous à {email}."
+      "text": "En tant qu’utilisateur soumis au droit européen (RGPD), vous pouvez demander l’accès à vos données personnelles, leur correction ou leur suppression. Contactez-nous à {email}."
     },
     "changes": {
       "title": "Modifications",
-      "text": "Cette Politique de Confidentialité peut être mise à jour périodiquement. La poursuite de l’utilisation de l’application vaut acceptation de la version mise à jour."
+      "text": "Cette Politique de Confidentialité peut être mise à jour de temps en temps. L’utilisation continue de l’application vaut acceptation de la version mise à jour."
     }
   }
 }

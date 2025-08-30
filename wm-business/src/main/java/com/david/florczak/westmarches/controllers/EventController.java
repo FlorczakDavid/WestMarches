@@ -18,12 +18,6 @@ public class EventController {
 	public EventController(EventService service) {
 		this.service = service;
 	}
-
-//	@PostMapping
-//	@ResponseStatus(HttpStatus.CREATED)
-//	void create(@Valid @RequestBody UserCreate inputs) {
-//		service.create(inputs);
-//	}
 	
 	@GetMapping("/poi")
 	Object getAccount(

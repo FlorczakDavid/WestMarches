@@ -50,10 +50,6 @@ public class Map extends AbstractEntity {
 		this.height = height;
 	}
 
-//	public User getUser() {
-//		return user;
-//	}
-
 	public void setUser(User user) {
 		this.user = user;
 	}

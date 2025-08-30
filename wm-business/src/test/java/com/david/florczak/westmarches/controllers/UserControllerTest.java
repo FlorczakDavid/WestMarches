@@ -35,37 +35,3 @@ public class UserControllerTest extends BaseMvcTests {
 		result.andExpect(status().isBadRequest());
 	}
 }
-
-/**
- * 
- * 
-
-@RestController
-@RequestMapping("/user")
-public class UserController {
-
-	//injection de dependences
-	private final UserService service;
-	
-	public UserController(UserService service) {
-		this.service = service;
-	}
-
-	@PostMapping
-	@ResponseStatus(HttpStatus.CREATED)
-	void create(@Valid @RequestBody UserCreate inputs) {
-		service.create(inputs);
-	}
-
-	@PostMapping("/login")
-	@ResponseStatus(HttpStatus.CREATED)
-	Object login(@RequestBody UserLogin inputs) {
-		return service.login(inputs);
-	}
-	
-	@GetMapping("/user")
-	Object getAccount(@RequestBody UserLogin inputs) {
-		return service.getUser(inputs.email());
-	}
-}
-*/

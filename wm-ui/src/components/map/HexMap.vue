@@ -36,7 +36,7 @@ export default {
       const grid = new Grid(
         Hex,
         rectangle({ width: this.mapData.width, height: this.mapData.height }),
-      ); //chult = 72, 85
+      );
       const container = this.$refs.mapContainer;
       container.innerHTML = "";
       const draw = SVG()

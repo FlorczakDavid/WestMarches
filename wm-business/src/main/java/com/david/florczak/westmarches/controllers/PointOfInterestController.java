@@ -18,12 +18,6 @@ public class PointOfInterestController {
 	public PointOfInterestController(PointOfInterestService service) {
 		this.service = service;
 	}
-
-//	@PostMapping
-//	@ResponseStatus(HttpStatus.CREATED)
-//	void create(@Valid @RequestBody UserCreate inputs) {
-//		service.create(inputs);
-//	}
 	
 	@GetMapping("/tile")
 	Object getAccount(@RequestParam String email, @RequestParam String map,  @RequestParam int x,  @RequestParam int y) {

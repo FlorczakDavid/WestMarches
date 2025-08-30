@@ -28,7 +28,6 @@ export default {
           },
         })
         .then((response) => {
-          console.log(response.data.poiName);
           this.pointsOfInterest = response.data;
         })
         .catch(() => { 

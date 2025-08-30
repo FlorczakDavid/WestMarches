@@ -17,12 +17,6 @@ public class MapController {
 	public MapController(MapService service) {
 		this.service = service;
 	}
-
-//	@PostMapping
-//	@ResponseStatus(HttpStatus.CREATED)
-//	void create(@Valid @RequestBody UserCreate inputs) {
-//		service.create(inputs);
-//	}
 	
 	@GetMapping("/user")
 	Object getAccount(@RequestParam String email) {

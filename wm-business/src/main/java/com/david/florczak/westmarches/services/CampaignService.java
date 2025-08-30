@@ -21,7 +21,6 @@ public class CampaignService {
 	}
 
 	public List<CampaignTable> getCampaignTable() {
-		// TODO Auto-generated method stub
 		return repository.findAllProjectedByOrderByCampaignName();
 	}
 

@@ -50,7 +50,7 @@ export default {
         </label>
         <input v-model="inputs.email" type="email" name="email" className="form-control" id="email" />
         <div class="text-danger" v-if="v$.inputs.email.$error">
-          {{ $t("auth.emailError") }}
+          {{ $t("validation.auth.emailError") }}
         </div>
       </div>
 
@@ -60,7 +60,7 @@ export default {
         </label>
         <input v-model="inputs.password" type="password" name="password" className="form-control" id="password" />
         <div class="text-danger" v-if="v$.inputs.password.$error">
-          {{ $t("auth.passwordError") }}
+          {{ $t("validation.auth.passwordError") }}
         </div>
       </div>
 

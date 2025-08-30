@@ -22,8 +22,6 @@ export default {
       immediate: true,
       deep: true,
       handler(newDetails) {
-      console.log("newDetails: ");
-      console.log(newDetails);
       this.$api
         .get("/event/poi", {
           params: {

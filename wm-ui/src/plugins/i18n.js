@@ -25,7 +25,6 @@ export async function loadLocaleMessages(locale) {
     i18n.global.setLocaleMessage(locale, module.default)
     return module.default
   } catch (e) {
-    console.warn(`[i18n] Missing locale file for '${locale}', falling back to 'en'`)
     return i18n.global.getLocaleMessage("en")
   }
 }
