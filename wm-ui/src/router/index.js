@@ -12,7 +12,7 @@ function getRoles() {
     const parsed = JSON.parse(raw);
     if (Array.isArray(parsed)) return parsed;
   } catch (_) {}
-  
+  // fallback for comma/space separated strings
   return String(raw)
     .split(/[, ]+/)
     .map((r) => r.trim())
@@ -65,6 +65,10 @@ const router = createRouter({
 
 router.beforeEach((to) => {
   const authed = isTokenValid();
+
+  if (to.meta?.roles && hasRole(to.meta.roles)) {
+    return { name: "login", replace: true };
+  }
 
   if (to.meta?.requiresAuth && !authed) {
     return { name: "login", replace: true };

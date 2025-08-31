@@ -24,7 +24,7 @@ export async function loadLocaleMessages(locale) {
     const module = await import(`@/assets/locales/${locale}.json`)
     i18n.global.setLocaleMessage(locale, module.default)
     return module.default
-  } catch (e) {
+  } catch (_) {
     return i18n.global.getLocaleMessage("en")
   }
 }

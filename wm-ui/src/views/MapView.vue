@@ -65,7 +65,6 @@ export default {
       :maps="maps"
       v-model:selectedMap="selectedMap"
     ></MapPickerTab>
-    <!-- <MouseFunctionPicker></MouseFunctionPicker> -->
   </div>
   <div class="content">
     <HexMap

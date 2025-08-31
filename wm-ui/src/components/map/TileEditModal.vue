@@ -152,14 +152,6 @@ export default {
                                             <div class="row">
                                                 <div class="col-sm-11">
                                                   <input type="text" class="card-title form-control form-control-lg col-sm-10" :aria-label="$t('tile.aria.eventNameInput')" :placeholder="$t('tile.eventNameInputPlaceholder')" v-model="this.tileData.pointsOfInterest[poiIndex].events[eventIndex].name"/>
-                                                  <!-- <div class="text-danger" v-if="v$.tileData.pointsOfInterest.$each[poiIndex].events.$each[eventIndex].name.$error">
-                                                    <div v-if="!v$.tileData.pointsOfInterest.$each[poiIndex].events.$each[eventIndex].name.required">
-                                                      {{$t('validation.required')}}
-                                                    </div>
-                                                    <div v-if="!v$.tileData.pointsOfInterest.$each[poiIndex].events.$each[eventIndex].name.maxLength">
-                                                      {{$t('validation.maxLength')}}
-                                                    </div>
-                                                  </div> -->
                                                 </div>
                                                 <div class="col-sm-1">
                                                     <button type="button" class="btn btn-outline-secondary btn-lg" @click="this.removeEvent(poiIndex, eventIndex)">x</button>
