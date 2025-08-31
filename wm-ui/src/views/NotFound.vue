@@ -10,6 +10,6 @@ export default {
 <template>
   <div class="head">
     <h1>404</h1>
-    <button v-on:click="goBack">{{ $t("errors.404.goBackButton") }}</button>
+    <button v-on:click="goBack">{{ $t("common.goBack") }}</button>
   </div>
 </template>
