@@ -59,7 +59,8 @@
     "disclamer": "Project developped as part of school assignment"
   },
   "common": {
-    "close": "close"
+    "close": "close",
+    "goBack": "Go Back"
   },
   "map": {
     "title": "Map",
