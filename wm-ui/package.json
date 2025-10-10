@@ -12,7 +12,7 @@
     "format": "prettier .  --write"
   },
   "dependencies": {
-    "@svgdotjs/svg.js": "^3.2.4",
+    "@svgdotjs/svg.js": "^3.2.5",
     "@vuelidate/core": "^2.0.3",
     "@vuelidate/validators": "^2.0.4",
     "axios": "^1.8.4",
